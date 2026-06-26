@@ -117,6 +117,83 @@ main{padding:1.5rem 2rem;max-width:1400px;margin:0 auto;}
   .lacuna-item{grid-template-columns:28px 1fr;}
   .lacuna-right{display:none;}
 }
+
+/* ── TEMAS ── */
+body.light{
+  background:#f5f0e8;color:#1a1208;
+  --bg:#f5f0e8;--paper:#fff8ee;--border:#c8b878;
+  --ink:#1a1208;--ink-mid:#4a3a1a;--ink-light:#7a6a4a;
+}
+body.light .header{background:linear-gradient(135deg,#1a0a2e,#2d1057);}
+body.light main{background:#f5f0e8;}
+body.light .kpi{background:#fff8ee;border-color:#c8b878;box-shadow:0 2px 8px rgba(0,0,0,.08);}
+body.light .kpi-lbl{color:#7a6a4a;}
+body.light .section-title{color:#9a8a6a;}
+body.light .section-title::after{background:rgba(0,0,0,.08);}
+body.light .lacuna-item{background:#fff8ee;border-color:#e0d8cc;}
+body.light .lacuna-item.critico{background:linear-gradient(135deg,rgba(248,113,113,.06),#fff8ee);border-color:rgba(220,80,80,.3);}
+body.light .lacuna-item.alto{background:linear-gradient(135deg,rgba(251,146,60,.05),#fff8ee);border-color:rgba(200,110,40,.25);}
+body.light .lacuna-item.medio{background:linear-gradient(135deg,rgba(180,140,10,.04),#fff8ee);border-color:rgba(180,140,10,.2);}
+body.light .lacuna-item.bom{background:linear-gradient(135deg,rgba(0,150,80,.04),#fff8ee);border-color:rgba(0,150,80,.2);}
+body.light .lacuna-tema{color:#1a1208;}
+body.light .lacuna-pergunta{color:#7a6a4a;}
+body.light .lacuna-motivo{color:#5a4a3a;}
+body.light .tema-card{background:#fff8ee;border-color:#c8b878;}
+body.light .tema-name{color:#1a1208;}
+body.light .bar-label{color:#9a8a6a;}
+body.light .bar-bg{background:rgba(0,0,0,.08);}
+body.light .tema-insight{color:#7a6a4a;}
+body.light .analista-row{background:#fff8ee;border-color:#c8b878;}
+body.light .analista-name{color:#1a1208;}
+body.light .analista-meta{color:#9a8a6a;}
+body.light .rec-card{background:#fff8ee;}
+body.light .rec-card.urgente{border-color:rgba(200,60,60,.3);}
+body.light .rec-card.importante{border-color:rgba(180,100,30,.25);}
+body.light .rec-card.oportunidade{border-color:rgba(0,130,60,.2);}
+body.light .rec-titulo{color:#1a1208;}
+body.light .rec-desc{color:#5a4a3a;}
+body.light #dashboard > div:last-child > div:last-child{background:rgba(130,10,209,.06);border-color:rgba(130,10,209,.2);}
+
+/* NUBANK */
+body.nubank{background:#1a0a2e;color:#f0e6ff;}
+body.nubank .header{background:linear-gradient(135deg,#0d0520,#1a0a2e);border-bottom-color:#00d164;}
+body.nubank .kpi{background:#2d1057;border-color:#6b21a8;}
+body.nubank .kpi-lbl{color:#c4a8f0;}
+body.nubank .section-title{color:#8b6abf;}
+body.nubank .section-title::after{background:rgba(107,33,168,.3);}
+body.nubank .lacuna-item{background:#2d1057;border-color:#6b21a8;}
+body.nubank .lacuna-item.critico{background:linear-gradient(135deg,rgba(248,113,113,.07),#2d1057);}
+body.nubank .lacuna-item.alto{background:linear-gradient(135deg,rgba(251,146,60,.06),#2d1057);}
+body.nubank .lacuna-item.medio{background:linear-gradient(135deg,rgba(250,204,21,.04),#2d1057);}
+body.nubank .lacuna-item.bom{background:linear-gradient(135deg,rgba(0,209,100,.05),#2d1057);}
+body.nubank .lacuna-tema{color:#f0e6ff;}
+body.nubank .lacuna-pergunta{color:#c4a8f0;}
+body.nubank .lacuna-motivo{color:#a88fd0;}
+body.nubank .tema-card{background:#2d1057;border-color:#6b21a8;}
+body.nubank .tema-name{color:#f0e6ff;}
+body.nubank .bar-label{color:#8b6abf;}
+body.nubank .bar-bg{background:rgba(107,33,168,.25);}
+body.nubank .tema-insight{color:#c4a8f0;}
+body.nubank .analista-row{background:#2d1057;border-color:#6b21a8;}
+body.nubank .analista-name{color:#f0e6ff;}
+body.nubank .analista-meta{color:#8b6abf;}
+body.nubank .rec-card{background:#2d1057;}
+body.nubank .rec-card.urgente{border-color:rgba(248,113,113,.3);}
+body.nubank .rec-card.importante{border-color:rgba(251,146,60,.25);}
+body.nubank .rec-card.oportunidade{border-color:rgba(0,209,100,.2);}
+body.nubank .rec-titulo{color:#f0e6ff;}
+body.nubank .rec-desc{color:#a88fd0;}
+body.nubank .data-badge{background:rgba(0,209,100,.1);border-color:rgba(0,209,100,.3);color:#00d164;}
+
+/* SELETOR DE TEMA */
+.theme-selector{display:flex;gap:.5rem;align-items:center;}
+.th-btn{font-family:'Orbitron',monospace;font-size:8px;padding:5px 12px;border-radius:3px;cursor:pointer;letter-spacing:1px;border:1px solid;transition:all .15s;font-weight:600;}
+.th-btn.dark{background:rgba(255,255,255,.05);border-color:rgba(255,255,255,.15);color:rgba(255,255,255,.5);}
+.th-btn.dark:hover,.th-btn.dark.active{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.4);color:#fff;}
+.th-btn.light-btn{background:rgba(245,240,232,.15);border-color:rgba(200,184,120,.4);color:#c8b878;}
+.th-btn.light-btn:hover,.th-btn.light-btn.active{background:rgba(245,240,232,.25);border-color:#c8b878;color:#e8c84a;}
+.th-btn.nubank-btn{background:rgba(0,209,100,.08);border-color:rgba(0,209,100,.3);color:#00d164;}
+.th-btn.nubank-btn:hover,.th-btn.nubank-btn.active{background:rgba(0,209,100,.15);border-color:#00d164;}
 </style>
 </head>
 <body>
@@ -146,6 +223,11 @@ main{padding:1.5rem 2rem;max-width:1400px;margin:0 auto;}
     <div class="live-dot"></div>
     <div class="live-txt">AO VIVO</div>
     <div class="data-badge">📅 JUNHO 2026</div>
+    <div class="theme-selector">
+      <button class="th-btn dark active" id="tb-dark" onclick="setTheme('dark')">🌙 ESCURO</button>
+      <button class="th-btn light-btn" id="tb-light" onclick="setTheme('light')">☀️ CLARO</button>
+      <button class="th-btn nubank-btn" id="tb-nubank" onclick="setTheme('nubank')">💜 NUBANK</button>
+    </div>
   </div>
 </div>
 
@@ -536,6 +618,21 @@ function checkAuth(){
   }
 }
 document.getElementById('auth-input').addEventListener('keydown',e=>{if(e.key==='Enter')checkAuth();});
+
+function setTheme(t){
+  document.body.classList.remove('light','nubank');
+  if(t==='light') document.body.classList.add('light');
+  else if(t==='nubank') document.body.classList.add('nubank');
+  document.querySelectorAll('.th-btn').forEach(b=>b.classList.remove('active'));
+  document.getElementById('tb-'+t).classList.add('active');
+  localStorage.setItem('dash_theme', t);
+}
+
+// Restaurar tema salvo
+(function(){
+  const t = localStorage.getItem('dash_theme') || 'dark';
+  setTheme(t);
+})();
 </script>
 </body>
 </html>
