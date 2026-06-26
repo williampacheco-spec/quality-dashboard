@@ -12,98 +12,107 @@ body{background:#0a0a14;color:#e8e8f0;font-family:'Exo 2',sans-serif;min-height:
 @keyframes fadeIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.5}}
 @keyframes spin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
-@keyframes barGrow{from{width:0}to{width:var(--w)}}
-@keyframes countUp{from{opacity:0;transform:scale(.5)}to{opacity:1;transform:scale(1)}}
+@keyframes barGrow{from{width:0}to{width:100%}}
 @keyframes glow{0%,100%{box-shadow:0 0 10px rgba(130,10,209,.3)}50%{box-shadow:0 0 25px rgba(130,10,209,.6)}}
 
-/* LAYOUT */
 .header{background:linear-gradient(135deg,#1a0a2e,#0d0d1e);border-bottom:2px solid #820AD1;padding:1.2rem 2rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;}
 .header-left{display:flex;align-items:center;gap:1rem;}
 .header-icon{font-size:2rem;}
-.header-title{font-family:'Orbitron',monospace;font-size:clamp(14px,2.5vw,22px);font-weight:900;color:#fff;}
-.header-sub{font-size:11px;color:rgba(255,255,255,.4);letter-spacing:2px;margin-top:2px;}
+.header-title{font-family:'Orbitron',monospace;font-size:clamp(13px,2.2vw,20px);font-weight:900;color:#fff;}
+.header-sub{font-size:10px;color:rgba(255,255,255,.35);letter-spacing:2px;margin-top:2px;}
 .header-right{display:flex;align-items:center;gap:.75rem;}
-.refresh-btn{font-family:'Orbitron',monospace;font-size:9px;padding:7px 16px;background:rgba(130,10,209,.15);border:1px solid rgba(130,10,209,.5);color:#a855f7;cursor:pointer;border-radius:3px;letter-spacing:1px;transition:all .2s;}
-.refresh-btn:hover{background:rgba(130,10,209,.3);}
-.live-dot{width:8px;height:8px;border-radius:50%;background:#00d164;animation:pulse 2s infinite;}
-.live-txt{font-family:'Orbitron',monospace;font-size:8px;color:#00d164;letter-spacing:1px;}
+.badge-metodologia{font-family:'Orbitron',monospace;font-size:8px;padding:5px 12px;background:rgba(251,146,60,.1);border:1px solid rgba(251,146,60,.4);color:#fb923c;border-radius:3px;letter-spacing:1px;}
 
-/* MAIN */
 main{padding:1.5rem 2rem;max-width:1400px;margin:0 auto;}
 
-/* KPI CARDS */
-.kpi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:1rem;margin-bottom:2rem;}
-.kpi{background:linear-gradient(135deg,#12102a,#0e0c20);border:1px solid rgba(255,255,255,.08);border-radius:8px;padding:1.2rem;position:relative;overflow:hidden;animation:fadeIn .5s ease both;}
-.kpi::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(130,10,209,.08),transparent);pointer-events:none;}
-.kpi-icon{font-size:1.5rem;margin-bottom:.5rem;}
-.kpi-val{font-family:'Orbitron',monospace;font-size:clamp(1.4rem,3vw,2rem);font-weight:900;margin-bottom:.2rem;}
-.kpi-lbl{font-size:10px;color:rgba(255,255,255,.4);letter-spacing:2px;text-transform:uppercase;}
+/* AVISO METODOLOGIA */
+.metodologia-banner{background:linear-gradient(135deg,rgba(251,146,60,.08),rgba(251,146,60,.04));border:1px solid rgba(251,146,60,.3);border-radius:8px;padding:1rem 1.25rem;margin-bottom:1.75rem;display:flex;align-items:flex-start;gap:.75rem;animation:fadeIn .5s ease;}
+.met-icon{font-size:1.2rem;flex-shrink:0;margin-top:2px;}
+.met-title{font-family:'Orbitron',monospace;font-size:10px;color:#fb923c;letter-spacing:1px;margin-bottom:.3rem;}
+.met-text{font-size:.82rem;color:rgba(255,255,255,.55);line-height:1.7;}
+.met-text strong{color:rgba(255,255,255,.8);}
+
+/* KPIs */
+.kpi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:1rem;margin-bottom:1.75rem;}
+.kpi{background:linear-gradient(135deg,#12102a,#0e0c20);border:1px solid rgba(255,255,255,.07);border-radius:8px;padding:1.1rem;animation:fadeIn .5s ease both;}
+.kpi-icon{font-size:1.4rem;margin-bottom:.4rem;}
+.kpi-val{font-family:'Orbitron',monospace;font-size:clamp(1.2rem,2.5vw,1.8rem);font-weight:900;margin-bottom:.2rem;}
+.kpi-lbl{font-size:9px;color:rgba(255,255,255,.35);letter-spacing:2px;text-transform:uppercase;line-height:1.4;}
+.kpi-fonte{font-size:8px;color:rgba(255,255,255,.2);margin-top:.3rem;font-style:italic;}
 .kpi.purple .kpi-val{color:#a855f7;}
-.kpi.green .kpi-val{color:#00d164;}
-.kpi.gold .kpi-val{color:#ffd700;}
-.kpi.blue .kpi-val{color:#60a5fa;}
 .kpi.red .kpi-val{color:#f87171;}
 .kpi.orange .kpi-val{color:#fb923c;}
+.kpi.gold .kpi-val{color:#ffd700;}
+.kpi.green .kpi-val{color:#00d164;}
+.kpi.blue .kpi-val{color:#60a5fa;}
 
 /* SEÇÃO */
 .section{margin-bottom:2rem;}
-.section-title{font-family:'Orbitron',monospace;font-size:12px;color:rgba(255,255,255,.4);letter-spacing:3px;margin-bottom:1rem;display:flex;align-items:center;gap:.75rem;}
-.section-title::after{content:'';flex:1;height:1px;background:rgba(255,255,255,.08);}
+.section-title{font-family:'Orbitron',monospace;font-size:11px;color:rgba(255,255,255,.35);letter-spacing:3px;margin-bottom:1rem;display:flex;align-items:center;gap:.75rem;}
+.section-title::after{content:'';flex:1;height:1px;background:rgba(255,255,255,.07);}
 
-/* LACUNAS POR TEMA */
-.tema-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1rem;}
-.tema-card{background:#12102a;border:1px solid rgba(255,255,255,.08);border-radius:8px;padding:1.25rem;animation:fadeIn .5s ease both;}
-.tema-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:1rem;}
-.tema-name{font-family:'Exo 2',sans-serif;font-size:.88rem;font-weight:700;color:#fff;}
-.tema-badge{font-family:'Orbitron',monospace;font-size:.7rem;padding:3px 10px;border-radius:12px;font-weight:700;}
-.badge-critico{background:rgba(248,113,113,.15);border:1px solid rgba(248,113,113,.4);color:#f87171;}
-.badge-atencao{background:rgba(251,146,60,.12);border:1px solid rgba(251,146,60,.35);color:#fb923c;}
-.badge-ok{background:rgba(0,209,100,.1);border:1px solid rgba(0,209,100,.3);color:#00d164;}
-.tema-bar-bg{height:8px;background:rgba(255,255,255,.06);border-radius:4px;overflow:hidden;margin-bottom:.5rem;}
-.tema-bar{height:100%;border-radius:4px;transition:width 1s ease;}
-.tema-stats{display:flex;justify-content:space-between;font-size:.78rem;color:rgba(255,255,255,.4);}
-.tema-acerto{font-weight:700;}
+/* RANKING LACUNAS */
+.lacuna-list{display:flex;flex-direction:column;gap:.75rem;}
+.lacuna-item{background:#12102a;border:1px solid rgba(255,255,255,.07);border-radius:8px;padding:1.1rem 1.25rem;display:grid;grid-template-columns:32px 1fr auto;gap:1rem;align-items:center;animation:fadeIn .5s ease both;}
+.lacuna-item.critico{border-color:rgba(248,113,113,.25);background:linear-gradient(135deg,rgba(248,113,113,.05),#12102a);}
+.lacuna-item.alto{border-color:rgba(251,146,60,.2);background:linear-gradient(135deg,rgba(251,146,60,.04),#12102a);}
+.lacuna-item.medio{border-color:rgba(250,204,21,.15);background:linear-gradient(135deg,rgba(250,204,21,.03),#12102a);}
+.lacuna-rank{font-family:'Orbitron',monospace;font-size:1.1rem;font-weight:900;text-align:center;}
+.lacuna-rank.critico{color:#f87171;}
+.lacuna-rank.alto{color:#fb923c;}
+.lacuna-rank.medio{color:#facc15;}
+.lacuna-body{}
+.lacuna-tema{font-size:.88rem;font-weight:700;color:#fff;margin-bottom:.2rem;}
+.lacuna-pergunta{font-size:.78rem;color:rgba(255,255,255,.4);margin-bottom:.4rem;font-style:italic;}
+.lacuna-motivo{font-size:.78rem;color:rgba(255,255,255,.5);line-height:1.6;}
+.lacuna-fonte{display:flex;gap:.4rem;flex-wrap:wrap;margin-top:.5rem;}
+.fonte-tag{font-size:.65rem;padding:2px 8px;border-radius:10px;font-weight:600;}
+.fonte-nps{background:rgba(168,85,247,.12);border:1px solid rgba(168,85,247,.3);color:#a855f7;}
+.fonte-jogo{background:rgba(0,209,100,.1);border:1px solid rgba(0,209,100,.25);color:#00d164;}
+.fonte-analise{background:rgba(96,165,250,.1);border:1px solid rgba(96,165,250,.25);color:#60a5fa;}
+.lacuna-right{text-align:center;}
+.nivel-badge{font-family:'Orbitron',monospace;font-size:.65rem;padding:4px 10px;border-radius:3px;letter-spacing:1px;font-weight:700;white-space:nowrap;}
+.nivel-critico{background:rgba(248,113,113,.15);border:1px solid rgba(248,113,113,.4);color:#f87171;}
+.nivel-alto{background:rgba(251,146,60,.12);border:1px solid rgba(251,146,60,.35);color:#fb923c;}
+.nivel-medio{background:rgba(250,204,21,.1);border:1px solid rgba(250,204,21,.3);color:#facc15;}
+.prob-est{font-family:'Orbitron',monospace;font-size:.95rem;font-weight:700;margin-top:.4rem;}
 
-/* TABELA DE PERGUNTAS */
-.q-table{width:100%;border-collapse:collapse;}
-.q-table th{font-family:'Orbitron',monospace;font-size:9px;color:rgba(255,255,255,.3);letter-spacing:2px;padding:.6rem 1rem;text-align:left;border-bottom:1px solid rgba(255,255,255,.08);}
-.q-table td{padding:.75rem 1rem;border-bottom:1px solid rgba(255,255,255,.04);font-size:.83rem;vertical-align:middle;}
-.q-table tr:hover td{background:rgba(255,255,255,.02);}
-.q-rank{font-family:'Orbitron',monospace;font-size:.75rem;font-weight:700;color:rgba(255,255,255,.3);text-align:center;}
-.q-rank.danger{color:#f87171;}
-.q-text{color:rgba(255,255,255,.8);max-width:400px;}
-.q-tema-tag{display:inline-block;font-size:.68rem;padding:2px 8px;border-radius:10px;font-weight:600;letter-spacing:.5px;}
-.mini-bar-bg{height:5px;background:rgba(255,255,255,.06);border-radius:3px;overflow:hidden;min-width:80px;}
-.mini-bar{height:100%;border-radius:3px;}
-.pct-num{font-family:'Orbitron',monospace;font-size:.8rem;font-weight:700;text-align:right;min-width:45px;}
-.erros-num{font-family:'Orbitron',monospace;font-size:.8rem;color:#f87171;text-align:right;}
+/* GRÁFICO TEMAS */
+.tema-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1rem;}
+.tema-card{background:#12102a;border:1px solid rgba(255,255,255,.07);border-radius:8px;padding:1.2rem;animation:fadeIn .5s ease both;}
+.tema-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:.75rem;}
+.tema-name{font-size:.88rem;font-weight:700;color:#fff;}
+.tema-nps{font-size:.72rem;padding:2px 8px;border-radius:10px;}
+.bar-wrap{margin-bottom:.4rem;}
+.bar-label{display:flex;justify-content:space-between;font-size:.72rem;color:rgba(255,255,255,.35);margin-bottom:.25rem;}
+.bar-bg{height:7px;background:rgba(255,255,255,.06);border-radius:4px;overflow:hidden;}
+.bar-fill{height:100%;border-radius:4px;transition:width 1.2s ease;}
+.tema-insight{font-size:.75rem;color:rgba(255,255,255,.4);line-height:1.6;margin-top:.6rem;font-style:italic;}
 
-/* ANALISTAS */
-.analistas-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:.75rem;}
-.analista-row{background:#12102a;border:1px solid rgba(255,255,255,.07);border-radius:6px;padding:.9rem 1rem;display:flex;align-items:center;gap:.75rem;}
-.analista-av{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#820AD1,#a855f7);display:flex;align-items:center;justify-content:center;font-family:'Orbitron',monospace;font-weight:700;font-size:.85rem;color:#fff;flex-shrink:0;}
-.analista-info{flex:1;min-width:0;}
-.analista-name{font-size:.82rem;font-weight:600;color:#fff;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
-.analista-meta{font-size:.72rem;color:rgba(255,255,255,.35);margin-top:2px;}
-.analista-xp{font-family:'Orbitron',monospace;font-size:.85rem;font-weight:700;color:#ffd700;}
+/* CORRELAÇÃO NPS */
+.correlacao-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
+.correlacao-card{background:#12102a;border:1px solid rgba(255,255,255,.07);border-radius:8px;padding:1.2rem;}
+.corr-title{font-family:'Orbitron',monospace;font-size:10px;color:rgba(255,255,255,.3);letter-spacing:2px;margin-bottom:.75rem;}
+.corr-item{display:flex;align-items:center;gap:.75rem;padding:.5rem 0;border-bottom:1px solid rgba(255,255,255,.04);}
+.corr-item:last-child{border-bottom:none;}
+.corr-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;}
+.corr-txt{font-size:.8rem;color:rgba(255,255,255,.6);flex:1;line-height:1.5;}
+.corr-val{font-family:'Orbitron',monospace;font-size:.8rem;font-weight:700;white-space:nowrap;}
 
-/* LOADING */
-#loading{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:60vh;gap:1rem;}
-.spinner{width:48px;height:48px;border:3px solid rgba(130,10,209,.2);border-top:3px solid #820AD1;border-radius:50%;animation:spin 1s linear infinite;}
-.load-txt{font-family:'Orbitron',monospace;font-size:11px;color:rgba(255,255,255,.4);letter-spacing:2px;animation:pulse 1.5s infinite;}
+/* RECOMENDAÇÕES */
+.rec-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1rem;}
+.rec-card{background:#12102a;border-radius:8px;padding:1.2rem;animation:fadeIn .5s ease both;}
+.rec-card.urgente{border:1px solid rgba(248,113,113,.25);}
+.rec-card.importante{border:1px solid rgba(251,146,60,.2);}
+.rec-card.oportunidade{border:1px solid rgba(0,209,100,.15);}
+.rec-tipo{font-family:'Orbitron',monospace;font-size:8px;letter-spacing:2px;margin-bottom:.5rem;}
+.rec-card.urgente .rec-tipo{color:#f87171;}
+.rec-card.importante .rec-tipo{color:#fb923c;}
+.rec-card.oportunidade .rec-tipo{color:#00d164;}
+.rec-titulo{font-size:.88rem;font-weight:700;color:#fff;margin-bottom:.4rem;}
+.rec-desc{font-size:.78rem;color:rgba(255,255,255,.45);line-height:1.65;}
 
-/* EMPTY */
-.empty{text-align:center;padding:3rem;color:rgba(255,255,255,.3);}
-.empty-icon{font-size:3rem;margin-bottom:1rem;opacity:.4;}
-.empty-txt{font-family:'Orbitron',monospace;font-size:11px;letter-spacing:2px;}
-
-/* FILTROS */
-.filters{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:1.5rem;}
-.filter-btn{font-family:'Orbitron',monospace;font-size:8px;padding:5px 12px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.4);cursor:pointer;border-radius:3px;letter-spacing:1px;transition:all .2s;}
-.filter-btn.active{background:rgba(130,10,209,.2);border-color:#820AD1;color:#a855f7;}
-.filter-btn:hover:not(.active){border-color:rgba(255,255,255,.25);color:rgba(255,255,255,.7);}
-
-/* SENHA */
+/* AUTH */
 #auth-wrap{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:100vh;gap:1.5rem;padding:2rem;}
 .auth-card{background:#12102a;border:2px solid rgba(130,10,209,.4);border-radius:12px;padding:2.5rem;max-width:400px;width:100%;text-align:center;animation:glow 3s ease-in-out infinite;}
 .auth-icon{font-size:3rem;margin-bottom:1rem;}
@@ -114,322 +123,453 @@ main{padding:1.5rem 2rem;max-width:1400px;margin:0 auto;}
 .auth-btn{width:100%;font-family:'Orbitron',monospace;font-size:.85rem;padding:12px;background:#820AD1;border:none;color:#fff;border-radius:4px;cursor:pointer;letter-spacing:2px;transition:all .2s;}
 .auth-btn:hover{background:#9b12f5;}
 .auth-err{font-size:.75rem;color:#f87171;margin-top:.5rem;font-family:'Orbitron',monospace;min-height:1rem;}
+
+@media(max-width:600px){
+  .correlacao-grid{grid-template-columns:1fr;}
+  .lacuna-item{grid-template-columns:28px 1fr;}
+  .lacuna-right{display:none;}
+}
 </style>
 </head>
 <body>
 
-<!-- AUTH -->
 <div id="auth-wrap">
   <div class="auth-card">
     <div class="auth-icon">🔐</div>
     <div class="auth-title">ACESSO RESTRITO</div>
-    <div class="auth-sub">Este dashboard é exclusivo para o Pack Quality.<br>Digite a senha para acessar.</div>
+    <div class="auth-sub">Dashboard exclusivo para o Pack Quality.<br>Digite a senha para acessar.</div>
     <input class="auth-input" id="auth-input" type="password" placeholder="••••••••••" maxlength="20" onkeydown="if(event.key==='Enter')checkAuth()"/>
     <button class="auth-btn" onclick="checkAuth()">🔓 ACESSAR DASHBOARD</button>
     <div class="auth-err" id="auth-err"></div>
   </div>
 </div>
 
-<!-- DASHBOARD (hidden) -->
-<div id="dashboard-wrap" style="display:none;">
-  <div class="header">
-    <div class="header-left">
-      <div class="header-icon">📊</div>
-      <div>
-        <div class="header-title">DASHBOARD DE LACUNAS</div>
-        <div class="header-sub">QUALITY INVESTIGATOR · PACK QUALITY · INVOPS BRASIL</div>
-      </div>
+<div id="dashboard" style="display:none;">
+
+<div class="header">
+  <div class="header-left">
+    <div class="header-icon">📊</div>
+    <div>
+      <div class="header-title">DASHBOARD DE LACUNAS</div>
+      <div class="header-sub">QUALITY INVESTIGATOR · PACK QUALITY · INVOPS BRASIL</div>
     </div>
-    <div class="header-right">
-      <div class="live-dot"></div>
-      <div class="live-txt">AO VIVO</div>
-      <button class="refresh-btn" onclick="loadData()">↺ ATUALIZAR</button>
+  </div>
+  <div class="header-right">
+    <div class="badge-metodologia">⚠ ANÁLISE PROJETADA</div>
+  </div>
+</div>
+
+<main>
+
+  <!-- BANNER METODOLOGIA -->
+  <div class="metodologia-banner">
+    <div class="met-icon">⚠️</div>
+    <div>
+      <div class="met-title">METODOLOGIA — ANÁLISE PROJETADA</div>
+      <div class="met-text">
+        Os dados individuais da Feira de Packs não puderam ser recuperados. Este dashboard apresenta uma
+        <strong>análise projetada de lacunas</strong> construída a partir do cruzamento de duas fontes:
+        <strong>(1) Pesquisa NPS Quality Engagement Fase 1</strong> — 97 respondentes, maio/2026 —
+        e <strong>(2) estrutura das 15 perguntas do Quality Investigator</strong>, considerando complexidade,
+        familiaridade esperada da operação com cada tema e os dados qualitativos das respostas abertas.
+        Os níveis de dificuldade são estimativas analíticas, não métricas de jogo.
+        <strong>Recomenda-se nova rodada com coleta de dados para validação.</strong>
+      </div>
     </div>
   </div>
 
-  <main>
-    <div id="loading">
-      <div class="spinner"></div>
-      <div class="load-txt">CARREGANDO DADOS...</div>
+  <!-- KPIs BASEADOS NA PESQUISA NPS -->
+  <div class="section">
+    <div class="section-title">INDICADORES DA PESQUISA NPS — BASE DO DIAGNÓSTICO</div>
+    <div class="kpi-grid">
+      <div class="kpi red" style="animation-delay:.0s">
+        <div class="kpi-icon">⚠️</div>
+        <div class="kpi-val">22%</div>
+        <div class="kpi-lbl">Detratores em Q13<br>Clareza de contestação</div>
+        <div class="kpi-fonte">Fonte: NPS Fase 1</div>
+      </div>
+      <div class="kpi orange" style="animation-delay:.07s">
+        <div class="kpi-icon">😟</div>
+        <div class="kpi-val">19%</div>
+        <div class="kpi-lbl">Citaram medo<br>de contestar</div>
+        <div class="kpi-fonte">Fonte: NPS Fase 1</div>
+      </div>
+      <div class="kpi gold" style="animation-delay:.14s">
+        <div class="kpi-icon">📋</div>
+        <div class="kpi-val">76%</div>
+        <div class="kpi-lbl">Pediram revisão<br>dos critérios</div>
+        <div class="kpi-fonte">Fonte: NPS Fase 1 — abertas</div>
+      </div>
+      <div class="kpi blue" style="animation-delay:.21s">
+        <div class="kpi-icon">🤝</div>
+        <div class="kpi-val">+39</div>
+        <div class="kpi-lbl">NPS Q2 — Pack<br>percebido como parceiro</div>
+        <div class="kpi-fonte">Fonte: NPS Fase 1</div>
+      </div>
+      <div class="kpi purple" style="animation-delay:.28s">
+        <div class="kpi-icon">📊</div>
+        <div class="kpi-val">+45</div>
+        <div class="kpi-lbl">NPS S4 — Seção<br>de contestação</div>
+        <div class="kpi-fonte">Fonte: NPS Fase 1</div>
+      </div>
+      <div class="kpi green" style="animation-delay:.35s">
+        <div class="kpi-icon">🎯</div>
+        <div class="kpi-val">5</div>
+        <div class="kpi-lbl">Temas com lacuna<br>identificada</div>
+        <div class="kpi-fonte">Fonte: Análise cruzada</div>
+      </div>
     </div>
-    <div id="content" style="display:none;"></div>
-  </main>
+  </div>
+
+  <!-- RANKING DE LACUNAS -->
+  <div class="section">
+    <div class="section-title">RANKING DE LACUNAS PROJETADAS — POR NÍVEL DE DIFICULDADE</div>
+    <div class="lacuna-list">
+
+      <div class="lacuna-item critico" style="animation-delay:.05s">
+        <div class="lacuna-rank critico">1</div>
+        <div class="lacuna-body">
+          <div class="lacuna-tema">🔴 Contestação — Prazo e Canal Oficial</div>
+          <div class="lacuna-pergunta">"Qual é o prazo para contestar uma monitoria?" + "Qual é o canal OFICIAL para abrir uma contestação?"</div>
+          <div class="lacuna-motivo">
+            A pesquisa NPS revelou que 22% eram detratores na clareza do processo de contestação e 19% citaram medo como barreira.
+            Analistas que têm medo de contestar provavelmente não dominam o processo — não sabem o prazo (3º dia útil do mês seguinte),
+            não conhecem o canal correto (Jira Quality Requests) e confundem Slack/e-mail como alternativas válidas.
+            Duas perguntas técnicas num tema onde a operação tem lacuna emocional e procedimental simultâneas.
+          </div>
+          <div class="lacuna-fonte">
+            <span class="fonte-tag fonte-nps">NPS: Q13 22% detratores</span>
+            <span class="fonte-tag fonte-nps">NPS: 19% medo de contestar</span>
+            <span class="fonte-tag fonte-jogo">Jogo: 2 perguntas diretas</span>
+            <span class="fonte-tag fonte-analise">Análise cruzada</span>
+          </div>
+        </div>
+        <div class="lacuna-right">
+          <div class="nivel-badge nivel-critico">CRÍTICO</div>
+          <div class="prob-est" style="color:#f87171;">~35% acerto</div>
+          <div style="font-size:.65rem;color:rgba(255,255,255,.25);margin-top:2px;">estimado</div>
+        </div>
+      </div>
+
+      <div class="lacuna-item critico" style="animation-delay:.1s">
+        <div class="lacuna-rank critico">2</div>
+        <div class="lacuna-body">
+          <div class="lacuna-tema">🔴 Scorecard — Processo vs. Resultado</div>
+          <div class="lacuna-pergunta">"Você tomou a decisão certa mas esqueceu de registrar a comunicação ao cliente. O que acontece?"</div>
+          <div class="lacuna-motivo">
+            76% da operação pediu revisão dos critérios na pesquisa — sinal claro de que o scorecard é percebido como "caixa preta".
+            A lógica de "decidi certo, então está OK" é muito natural e vai contra o critério do scorecard.
+            A pergunta simula uma situação cotidiana onde a decisão foi acertada mas o processo ficou incompleto.
+            Essa dissonância (decisão certa = NOK) é contraintuitiva e provavelmente pega a maioria.
+          </div>
+          <div class="lacuna-fonte">
+            <span class="fonte-tag fonte-nps">NPS: 76% pedem clareza de critérios</span>
+            <span class="fonte-tag fonte-nps">NPS: Q5 13% detratores</span>
+            <span class="fonte-tag fonte-jogo">Jogo: pergunta simulação real</span>
+            <span class="fonte-tag fonte-analise">Análise cruzada</span>
+          </div>
+        </div>
+        <div class="lacuna-right">
+          <div class="nivel-badge nivel-critico">CRÍTICO</div>
+          <div class="prob-est" style="color:#f87171;">~40% acerto</div>
+          <div style="font-size:.65rem;color:rgba(255,255,255,.25);margin-top:2px;">estimado</div>
+        </div>
+      </div>
+
+      <div class="lacuna-item alto" style="animation-delay:.15s">
+        <div class="lacuna-rank alto">3</div>
+        <div class="lacuna-body">
+          <div class="lacuna-tema">🟠 Apontamento Externo — Conceito Pouco Conhecido</div>
+          <div class="lacuna-pergunta">"O que é um Apontamento Externo no contexto do Pack Quality?"</div>
+          <div class="lacuna-motivo">
+            Apontamento Externo é um conceito interno do Pack Quality que raramente aparece no dia a dia do analista de forma direta.
+            As fontes (Reputational, Regulatory, InvOps Intelligence) são distantes da operação de linha.
+            Sem exposição prévia ao termo, a tendência é confundir com monitoria surpresa ou auditoria externa —
+            ambas opções de distração plausíveis no jogo.
+          </div>
+          <div class="lacuna-fonte">
+            <span class="fonte-tag fonte-nps">NPS: S3 Q9 19% detratores</span>
+            <span class="fonte-tag fonte-jogo">Jogo: conceito não cotidiano</span>
+            <span class="fonte-tag fonte-analise">Análise de familiaridade</span>
+          </div>
+        </div>
+        <div class="lacuna-right">
+          <div class="nivel-badge nivel-alto">ALTO</div>
+          <div class="prob-est" style="color:#fb923c;">~50% acerto</div>
+          <div style="font-size:.65rem;color:rgba(255,255,255,.25);margin-top:2px;">estimado</div>
+        </div>
+      </div>
+
+      <div class="lacuna-item alto" style="animation-delay:.2s">
+        <div class="lacuna-rank alto">4</div>
+        <div class="lacuna-body">
+          <div class="lacuna-tema">🟠 MO e Processo — Obrigatoriedade Contraintuitiva</div>
+          <div class="lacuna-pergunta">"Por que o registro do MO é obrigatório mesmo quando a decisão de bloqueio está correta?"</div>
+          <div class="lacuna-motivo">
+            A lógica de que o MO é obrigatório independente do resultado vai contra o senso comum.
+            Analistas que focam em "acertar a decisão" tendem a subestimar o peso da documentação.
+            A distração "só o IC4 precisa documentar" é especialmente eficaz para quem não tem clareza
+            sobre a distribuição de responsabilidades por nível.
+          </div>
+          <div class="lacuna-fonte">
+            <span class="fonte-tag fonte-nps">NPS: Q10 15% detratores (feedback)</span>
+            <span class="fonte-tag fonte-jogo">Jogo: opção distratora muito plausível</span>
+            <span class="fonte-tag fonte-analise">Análise de complexidade</span>
+          </div>
+        </div>
+        <div class="lacuna-right">
+          <div class="nivel-badge nivel-alto">ALTO</div>
+          <div class="prob-est" style="color:#fb923c;">~55% acerto</div>
+          <div style="font-size:.65rem;color:rgba(255,255,255,.25);margin-top:2px;">estimado</div>
+        </div>
+      </div>
+
+      <div class="lacuna-item medio" style="animation-delay:.25s">
+        <div class="lacuna-rank medio">5</div>
+        <div class="lacuna-body">
+          <div class="lacuna-tema">🟡 Pack como Parceiro vs. Auditor — Percepção vs. Conceito</div>
+          <div class="lacuna-pergunta">"Qual é a diferença fundamental entre o Pack Quality ser PARCEIRO e ser AUDITOR?"</div>
+          <div class="lacuna-motivo">
+            Q2 da pesquisa (NPS +39) mostrou que boa parte da operação não percebe o Pack como parceiro real.
+            No jogo, a pergunta sobre a diferença entre parceiro e auditor é conceitual — e a operação
+            tende a acertar o conceito mas ainda não o vivencia na prática.
+            A distância entre saber a resposta certa e sentir a parceria é exatamente o que a pesquisa mediu.
+          </div>
+          <div class="lacuna-fonte">
+            <span class="fonte-tag fonte-nps">NPS: Q2 NPS +39 (14% detratores)</span>
+            <span class="fonte-tag fonte-jogo">Jogo: pergunta conceitual</span>
+            <span class="fonte-tag fonte-analise">Análise de percepção</span>
+          </div>
+        </div>
+        <div class="lacuna-right">
+          <div class="nivel-badge nivel-medio">MÉDIO</div>
+          <div class="prob-est" style="color:#facc15;">~65% acerto</div>
+          <div style="font-size:.65rem;color:rgba(255,255,255,.25);margin-top:2px;">estimado</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- DESEMPENHO POR TEMA -->
+  <div class="section">
+    <div class="section-title">DESEMPENHO ESTIMADO POR TEMA</div>
+    <div class="tema-grid">
+
+      <div class="tema-card" style="animation-delay:.05s">
+        <div class="tema-header">
+          <div class="tema-name">⚖️ Contestação</div>
+          <span class="tema-nps" style="background:rgba(248,113,113,.12);border:1px solid rgba(248,113,113,.3);color:#f87171;font-size:.7rem;padding:2px 8px;border-radius:10px;">NPS S4: +45</span>
+        </div>
+        <div class="bar-wrap">
+          <div class="bar-label"><span>Acerto estimado</span><span style="color:#f87171">38%</span></div>
+          <div class="bar-bg"><div class="bar-fill" style="width:38%;background:#f87171;"></div></div>
+        </div>
+        <div class="bar-wrap">
+          <div class="bar-label"><span>Perguntas no jogo</span><span>5 de 15</span></div>
+          <div class="bar-bg"><div class="bar-fill" style="width:33%;background:rgba(248,113,113,.4);"></div></div>
+        </div>
+        <div class="tema-insight">Maior concentração de perguntas + menor familiaridade da operação = maior gap esperado. Q13 com 22% detratores confirma a lacuna procedimental.</div>
+      </div>
+
+      <div class="tema-card" style="animation-delay:.1s">
+        <div class="tema-header">
+          <div class="tema-name">📊 Scorecard e Processo</div>
+          <span class="tema-nps" style="background:rgba(251,146,60,.1);border:1px solid rgba(251,146,60,.3);color:#fb923c;font-size:.7rem;padding:2px 8px;border-radius:10px;">NPS S2: +58</span>
+        </div>
+        <div class="bar-wrap">
+          <div class="bar-label"><span>Acerto estimado</span><span style="color:#fb923c">45%</span></div>
+          <div class="bar-bg"><div class="bar-fill" style="width:45%;background:#fb923c;"></div></div>
+        </div>
+        <div class="bar-wrap">
+          <div class="bar-label"><span>Perguntas no jogo</span><span>4 de 15</span></div>
+          <div class="bar-bg"><div class="bar-fill" style="width:27%;background:rgba(251,146,60,.4);"></div></div>
+        </div>
+        <div class="tema-insight">NPS S2 razoável (+58), mas 76% das abertas pediram revisão de critérios. A operação sabe que existe scorecard mas não domina o que é avaliado além da decisão.</div>
+      </div>
+
+      <div class="tema-card" style="animation-delay:.15s">
+        <div class="tema-header">
+          <div class="tema-name">📌 Apontamentos</div>
+          <span class="tema-nps" style="background:rgba(250,204,21,.08);border:1px solid rgba(250,204,21,.25);color:#facc15;font-size:.7rem;padding:2px 8px;border-radius:10px;">NPS S3: +54</span>
+        </div>
+        <div class="bar-wrap">
+          <div class="bar-label"><span>Acerto estimado</span><span style="color:#facc15">52%</span></div>
+          <div class="bar-bg"><div class="bar-fill" style="width:52%;background:#facc15;"></div></div>
+        </div>
+        <div class="bar-wrap">
+          <div class="bar-label"><span>Perguntas no jogo</span><span>2 de 15</span></div>
+          <div class="bar-bg"><div class="bar-fill" style="width:13%;background:rgba(250,204,21,.4);"></div></div>
+        </div>
+        <div class="tema-insight">Apontamento básico (conceito) provavelmente vai bem. Apontamento Externo (fontes específicas) provavelmente vai mal — grande variância esperada entre as duas perguntas.</div>
+      </div>
+
+      <div class="tema-card" style="animation-delay:.2s">
+        <div class="tema-header">
+          <div class="tema-name">🧠 MO e Documentação</div>
+          <span class="tema-nps" style="background:rgba(96,165,250,.08);border:1px solid rgba(96,165,250,.25);color:#60a5fa;font-size:.7rem;padding:2px 8px;border-radius:10px;">NPS S3: +54</span>
+        </div>
+        <div class="bar-wrap">
+          <div class="bar-label"><span>Acerto estimado</span><span style="color:#60a5fa">58%</span></div>
+          <div class="bar-bg"><div class="bar-fill" style="width:58%;background:#60a5fa;"></div></div>
+        </div>
+        <div class="bar-wrap">
+          <div class="bar-label"><span>Perguntas no jogo</span><span>2 de 15</span></div>
+          <div class="bar-bg"><div class="bar-fill" style="width:13%;background:rgba(96,165,250,.4);"></div></div>
+        </div>
+        <div class="tema-insight">MO é um conceito mais presente no dia a dia. A dificuldade está na obrigatoriedade mesmo com decisão certa — lógica contraintuitiva que divide a operação.</div>
+      </div>
+
+      <div class="tema-card" style="animation-delay:.25s">
+        <div class="tema-header">
+          <div class="tema-name">🤝 Parceria e Missão</div>
+          <span class="tema-nps" style="background:rgba(0,209,100,.08);border:1px solid rgba(0,209,100,.25);color:#00d164;font-size:.7rem;padding:2px 8px;border-radius:10px;">NPS S1: +58</span>
+        </div>
+        <div class="bar-wrap">
+          <div class="bar-label"><span>Acerto estimado</span><span style="color:#00d164">72%</span></div>
+          <div class="bar-bg"><div class="bar-fill" style="width:72%;background:#00d164;"></div></div>
+        </div>
+        <div class="bar-wrap">
+          <div class="bar-label"><span>Perguntas no jogo</span><span>2 de 15</span></div>
+          <div class="bar-bg"><div class="bar-fill" style="width:13%;background:rgba(0,209,100,.4);"></div></div>
+        </div>
+        <div class="tema-insight">Q1 da pesquisa teve NPS +84 — a operação entende o papel do Pack. Perguntas sobre missão e parceria tendem a ir melhor, pois o conceito é mais acessível que o procedimento.</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- CORRELAÇÃO NPS x JOGO -->
+  <div class="section">
+    <div class="section-title">CORRELAÇÃO — NPS FASE 1 × PERGUNTAS DO JOGO</div>
+    <div class="correlacao-grid">
+      <div class="correlacao-card">
+        <div class="corr-title">DADOS NPS QUE CONFIRMAM A LACUNA</div>
+        <div class="corr-item">
+          <div class="corr-dot" style="background:#f87171;"></div>
+          <div class="corr-txt">Q13 com 22% detratores → operação não entende o retorno de contestação</div>
+          <div class="corr-val" style="color:#f87171;">CRÍTICO</div>
+        </div>
+        <div class="corr-item">
+          <div class="corr-dot" style="background:#f87171;"></div>
+          <div class="corr-txt">19% citaram medo de contestar → desconhecimento do processo e canal</div>
+          <div class="corr-val" style="color:#f87171;">CRÍTICO</div>
+        </div>
+        <div class="corr-item">
+          <div class="corr-dot" style="background:#fb923c;"></div>
+          <div class="corr-txt">76% abertas pediram revisão de critérios → scorecard é "caixa preta"</div>
+          <div class="corr-val" style="color:#fb923c;">ALTO</div>
+        </div>
+        <div class="corr-item">
+          <div class="corr-dot" style="background:#fb923c;"></div>
+          <div class="corr-txt">Q9 com 19% detratores → operação não sabe o que é monitorado no distrito</div>
+          <div class="corr-val" style="color:#fb923c;">ALTO</div>
+        </div>
+        <div class="corr-item">
+          <div class="corr-dot" style="background:#facc15;"></div>
+          <div class="corr-txt">Q2 com NPS +39 → Pack não percebido como parceiro real</div>
+          <div class="corr-val" style="color:#facc15;">MÉDIO</div>
+        </div>
+      </div>
+      <div class="correlacao-card">
+        <div class="corr-title">PONTOS ONDE A OPERAÇÃO PROVAVELMENTE FOI BEM</div>
+        <div class="corr-item">
+          <div class="corr-dot" style="background:#00d164;"></div>
+          <div class="corr-txt">Q1 NPS +84 → entendem o papel do Pack → missão e parceria conceitual</div>
+          <div class="corr-val" style="color:#00d164;">BOM</div>
+        </div>
+        <div class="corr-item">
+          <div class="corr-dot" style="background:#00d164;"></div>
+          <div class="corr-txt">Q11 NPS +85 → conhecem o fluxo de contestação → canal e abertura</div>
+          <div class="corr-val" style="color:#00d164;">BOM</div>
+        </div>
+        <div class="corr-item">
+          <div class="corr-dot" style="background:#00d164;"></div>
+          <div class="corr-txt">Q6 NPS +85 → entendem impacto das decisões no scorecard</div>
+          <div class="corr-val" style="color:#00d164;">BOM</div>
+        </div>
+        <div class="corr-item">
+          <div class="corr-dot" style="background:#60a5fa;"></div>
+          <div class="corr-txt">Q8 NPS +65 → apontamentos ajudam a melhorar → conceito básico claro</div>
+          <div class="corr-val" style="color:#60a5fa;">MÉDIO+</div>
+        </div>
+        <div class="corr-item">
+          <div class="corr-dot" style="background:#60a5fa;"></div>
+          <div class="corr-txt">Perguntas sobre definição de MO → conceito presente no cotidiano</div>
+          <div class="corr-val" style="color:#60a5fa;">MÉDIO+</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- RECOMENDAÇÕES -->
+  <div class="section">
+    <div class="section-title">RECOMENDAÇÕES PARA O PACK QUALITY</div>
+    <div class="rec-grid">
+      <div class="rec-card urgente">
+        <div class="rec-tipo">🔴 URGENTE — CALIBRAÇÃO</div>
+        <div class="rec-titulo">Pautar contestação na próxima Roda de Conversa</div>
+        <div class="rec-desc">O processo completo de contestação — prazo (3º dia útil), canal (Jira), o que é procedente — deve ser apresentado com exemplos reais. A lacuna é procedimental e emocional ao mesmo tempo.</div>
+      </div>
+      <div class="rec-card urgente">
+        <div class="rec-tipo">🔴 URGENTE — COMUNICAÇÃO</div>
+        <div class="rec-titulo">Publicar guia visual de critérios do scorecard</div>
+        <div class="rec-desc">76% pediram revisão e comunicação dos critérios. Um documento simples com exemplos reais de OK vs NOK por critério (decisão, MO, comunicação) reduziria diretamente o gap identificado.</div>
+      </div>
+      <div class="rec-card importante">
+        <div class="rec-tipo">🟠 IMPORTANTE — ONBOARDING</div>
+        <div class="rec-titulo">Incluir Apontamento Externo no onboarding</div>
+        <div class="rec-desc">O conceito de Apontamento Externo e suas fontes (Reputational, Regulatory, InvOps Intel) é pouco conhecido pela operação de linha. Vale incluir no material de integração de novos analistas.</div>
+      </div>
+      <div class="rec-card importante">
+        <div class="rec-tipo">🟠 IMPORTANTE — PRÓXIMA RODADA</div>
+        <div class="rec-titulo">Nova rodada do Quality Investigator com coleta de dados</div>
+        <div class="rec-desc">Esta análise é projetada. Para validar as lacunas com dado real, é fundamental rodar o jogo novamente com infraestrutura de coleta funcionando e analisar os resultados por pergunta.</div>
+      </div>
+      <div class="rec-card oportunidade">
+        <div class="rec-tipo">🟢 OPORTUNIDADE — NPS FASE 2</div>
+        <div class="rec-titulo">Usar o jogo como evidência de ação para agosto/2026</div>
+        <div class="rec-desc">A pesquisa NPS Fase 2 medirá se Q2 (parceria) e Q13 (contestação) evoluíram. O Quality Investigator é a prova concreta de que o Pack Quality agiu em resposta ao diagnóstico. Documentar para a apresentação.</div>
+      </div>
+      <div class="rec-card oportunidade">
+        <div class="rec-tipo">🟢 OPORTUNIDADE — PRODUTO</div>
+        <div class="rec-titulo">Modo treinamento com perguntas por lacuna</div>
+        <div class="rec-desc">Criar uma versão do jogo focada nos temas críticos identificados — contestação e scorecard — para analistas usarem como ferramenta de estudo antes da próxima avaliação de monitoria.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- NOTA FINAL -->
+  <div style="background:linear-gradient(135deg,rgba(130,10,209,.08),rgba(0,209,100,.04));border:1px solid rgba(130,10,209,.25);border-radius:8px;padding:1.25rem 1.5rem;margin-bottom:2rem;">
+    <div style="font-family:'Orbitron',monospace;font-size:10px;color:#a855f7;letter-spacing:2px;margin-bottom:.6rem;">💡 NOTA ANALÍTICA</div>
+    <div style="font-size:.85rem;line-height:1.85;color:rgba(255,255,255,.55);">
+      Esta análise foi construída cruzando os dados da <strong style="color:rgba(255,255,255,.8)">Pesquisa NPS Quality Engagement Fase 1</strong>
+      (97 respondentes, maio/2026, NPS Geral +55) com a <strong style="color:rgba(255,255,255,.8)">estrutura das 15 perguntas do Quality Investigator</strong>,
+      levando em conta complexidade das perguntas, plausibilidade das distrações, familiaridade esperada da operação com cada tema e
+      os dados qualitativos das 256 respostas abertas da pesquisa.
+      Os percentuais estimados de acerto são projeções analíticas — não métricas de jogo.
+      <strong style="color:#00d164">Recomenda-se fortemente uma nova rodada do Quality Investigator com coleta de dados íntegra para validação empírica destas projeções.</strong>
+    </div>
+  </div>
+
+</main>
 </div>
 
 <script>
-const BIN_ID='6a2c0badda38895dfeb4fb50';
-const MKEY='$2a$10$wjfXgrsC/PZ.R/HwB5.5aO7t5PCFQ8v4ppgcedXPOFovWfc72T5Na';
-const BURL='https://api.jsonbin.io/v3/b/'+BIN_ID;
-const SENHA='quality2025';
-
-// ── PERGUNTAS (para exibir texto no dashboard) ──
-const PERGUNTAS=[
-  {txt:'Por que o registro do MO é obrigatório mesmo quando a decisão está correta?',cat:'MO e Processo'},
-  {txt:'O que é o Modus Operandi (MO) de um caso de fraude?',cat:'MO e Processo'},
-  {txt:'O que mais o scorecard avalia além da decisão final?',cat:'Scorecard'},
-  {txt:'Esqueceu de registrar a comunicação ao cliente. O que acontece?',cat:'Scorecard'},
-  {txt:'Qual é o PRIMEIRO passo ao receber NOK e discordar?',cat:'Contestação'},
-  {txt:'O que uma contestação PROCEDENTE revela sobre o Pack Quality?',cat:'Contestação'},
-  {txt:'Qual é o canal OFICIAL para abrir uma contestação?',cat:'Contestação'},
-  {txt:'Por que analistas têm receio de contestar mesmo discordando?',cat:'Contestação'},
-  {txt:'Contestação sem evidência tende a ser julgada como:',cat:'Contestação'},
-  {txt:'Padrão de erro em vários analistas — qual o próximo passo?',cat:'Parceria'},
-  {txt:'O que é um Apontamento Externo?',cat:'Apontamentos'},
-  {txt:'Qual é o prazo para contestar uma monitoria?',cat:'Contestação'},
-  {txt:'O que é um Apontamento no contexto do Pack Quality?',cat:'Apontamentos'},
-  {txt:'Diferença fundamental entre PARCEIRO e AUDITOR?',cat:'Parceria'},
-  {txt:'Qual é a missão central do Pack Quality InvOps Brasil?',cat:'Missão'},
-];
-
-const CAT_COLORS={
-  'MO e Processo':   {bar:'#a855f7',tag:'rgba(168,85,247,.15)',tagBorder:'rgba(168,85,247,.4)',tagColor:'#a855f7'},
-  'Scorecard':       {bar:'#60a5fa',tag:'rgba(96,165,250,.15)',tagBorder:'rgba(96,165,250,.4)',tagColor:'#60a5fa'},
-  'Contestação':     {bar:'#f87171',tag:'rgba(248,113,113,.15)',tagBorder:'rgba(248,113,113,.4)',tagColor:'#f87171'},
-  'Parceria':        {bar:'#00d164',tag:'rgba(0,209,100,.12)',tagBorder:'rgba(0,209,100,.35)',tagColor:'#00d164'},
-  'Apontamentos':    {bar:'#fb923c',tag:'rgba(251,146,60,.15)',tagBorder:'rgba(251,146,60,.4)',tagColor:'#fb923c'},
-  'Missão':          {bar:'#ffd700',tag:'rgba(255,215,0,.12)',tagBorder:'rgba(255,215,0,.35)',tagColor:'#ffd700'},
-};
-
-// ── AUTH ──
+const SENHA = 'quality2025';
 function checkAuth(){
-  const v=document.getElementById('auth-input').value;
-  if(v===SENHA){
-    document.getElementById('auth-wrap').style.display='none';
-    document.getElementById('dashboard-wrap').style.display='block';
-    loadData();
-  }else{
-    document.getElementById('auth-err').textContent='SENHA INCORRETA';
-    document.getElementById('auth-input').value='';
+  const v = document.getElementById('auth-input').value;
+  if(v === SENHA){
+    document.getElementById('auth-wrap').style.display = 'none';
+    document.getElementById('dashboard').style.display = 'block';
+  } else {
+    document.getElementById('auth-err').textContent = 'SENHA INCORRETA';
+    document.getElementById('auth-input').value = '';
   }
 }
-document.getElementById('auth-input').addEventListener('keydown',e=>{if(e.key==='Enter')checkAuth();});
-
-// ── CARREGAR DADOS ──
-async function loadData(){
-  document.getElementById('loading').style.display='flex';
-  document.getElementById('content').style.display='none';
-  try{
-    const r=await fetch(BURL+'/latest',{headers:{'X-Master-Key':MKEY}});
-    const d=await r.json();
-    const resultados=d.record?.resultados||[];
-    render(resultados);
-  }catch(e){
-    document.getElementById('loading').innerHTML='<div class="empty"><div class="empty-icon">⚠️</div><div class="empty-txt">ERRO AO CARREGAR DADOS</div></div>';
-  }
-}
-
-// ── PROCESSAR DADOS ──
-function processData(resultados){
-  // Agrupa melhor resultado por email
-  const byEmail={};
-  resultados.forEach(r=>{
-    const k=r.email.toLowerCase();
-    if(!byEmail[k]||r.xp>byEmail[k].xp) byEmail[k]=r;
-  });
-  const unique=Object.values(byEmail);
-
-  // KPIs
-  const total=unique.length;
-  const avgXp=total?Math.round(unique.reduce((s,r)=>s+r.xp,0)/total):0;
-  const avgAcc=total?Math.round(unique.reduce((s,r)=>s+r.pct,0)/total):0;
-  const avgTime=total?Math.round(unique.reduce((s,r)=>s+(r.timeSeconds||0),0)/total):0;
-  const avgCombo=total?Math.round(unique.reduce((s,r)=>s+(r.maxCombo||0),0)/total):0;
-  const best=unique.sort((a,b)=>b.xp-a.xp)[0];
-
-  // Análise por categoria
-  const catStats={};
-  unique.forEach(r=>{
-    if(!r.catResults)return;
-    Object.entries(r.catResults).forEach(([cat,{correct,total}])=>{
-      if(!catStats[cat])catStats[cat]={correct:0,total:0};
-      catStats[cat].correct+=correct;
-      catStats[cat].total+=total;
-    });
-  });
-
-  // Simular dados por pergunta (baseado em catResults distribuídos)
-  // Como o jogo salva por categoria, vamos distribuir proporcionalmente
-  const qStats=PERGUNTAS.map((p,i)=>{
-    const cat=p.cat;
-    const cs=catStats[cat];
-    if(!cs||cs.total===0) return{...p,correct:0,total:total,pct:50,erros:Math.floor(total*.5)};
-    const catPct=cs.correct/cs.total;
-    // Adiciona variação por pergunta simulada
-    const variation=(Math.sin(i*7.3)*.15);
-    const pct=Math.max(5,Math.min(98,Math.round((catPct+variation)*100)));
-    const erros=Math.round(total*(1-pct/100));
-    return{...p,correct:Math.round(total*pct/100),total,pct,erros};
-  });
-
-  return{unique,total,avgXp,avgAcc,avgTime,avgCombo,best,catStats,qStats};
-}
-
-// ── RENDER ──
-function render(resultados){
-  document.getElementById('loading').style.display='none';
-  const content=document.getElementById('content');
-  content.style.display='block';
-
-  if(!resultados.length){
-    content.innerHTML='<div class="empty"><div class="empty-icon">⏳</div><div class="empty-txt">NENHUM RESULTADO AINDA</div><p style="margin-top:.5rem;font-size:.8rem;color:rgba(255,255,255,.3);">Aguardando jogadores finalizarem o Quality Investigator</p></div>';
-    return;
-  }
-
-  const{unique,total,avgXp,avgAcc,avgTime,avgCombo,best,catStats,qStats}=processData(resultados);
-  const mins=Math.floor(avgTime/60),secs=avgTime%60;
-
-  // Ordenar perguntas por % de erro (pior primeiro)
-  const qSorted=[...qStats].sort((a,b)=>a.pct-b.pct);
-
-  // Stats por categoria
-  const catSorted=Object.entries(catStats)
-    .map(([cat,{correct,total}])=>({cat,correct,total,pct:Math.round(correct/total*100)}))
-    .sort((a,b)=>a.pct-b.pct);
-
-  content.innerHTML=`
-    <!-- KPIs -->
-    <div class="kpi-grid">
-      <div class="kpi purple" style="animation-delay:.0s">
-        <div class="kpi-icon">👥</div>
-        <div class="kpi-val">${total}</div>
-        <div class="kpi-lbl">Analistas</div>
-      </div>
-      <div class="kpi green" style="animation-delay:.08s">
-        <div class="kpi-icon">🎯</div>
-        <div class="kpi-val">${avgAcc}%</div>
-        <div class="kpi-lbl">Aproveit. Médio</div>
-      </div>
-      <div class="kpi gold" style="animation-delay:.16s">
-        <div class="kpi-icon">⚡</div>
-        <div class="kpi-val">${avgXp}</div>
-        <div class="kpi-lbl">XP Médio</div>
-      </div>
-      <div class="kpi blue" style="animation-delay:.24s">
-        <div class="kpi-icon">⏱</div>
-        <div class="kpi-val">${mins}m${String(secs).padStart(2,'0')}s</div>
-        <div class="kpi-lbl">Tempo Médio</div>
-      </div>
-      <div class="kpi orange" style="animation-delay:.32s">
-        <div class="kpi-icon">🔥</div>
-        <div class="kpi-val">${avgCombo}</div>
-        <div class="kpi-lbl">Combo Médio</div>
-      </div>
-      <div class="kpi red" style="animation-delay:.4s">
-        <div class="kpi-icon">⚠️</div>
-        <div class="kpi-val">${qSorted.filter(q=>q.pct<50).length}</div>
-        <div class="kpi-lbl">Temas Críticos</div>
-      </div>
-    </div>
-
-    <!-- LACUNAS POR CATEGORIA -->
-    <div class="section">
-      <div class="section-title">DESEMPENHO POR CATEGORIA</div>
-      <div class="tema-grid">
-        ${catSorted.map(({cat,correct,total,pct})=>{
-          const c=CAT_COLORS[cat]||{bar:'#a855f7'};
-          const status=pct<50?'CRÍTICO':pct<70?'ATENÇÃO':'BOM';
-          const badgeClass=pct<50?'badge-critico':pct<70?'badge-atencao':'badge-ok';
-          return `
-          <div class="tema-card">
-            <div class="tema-header">
-              <div class="tema-name">${cat}</div>
-              <div class="tema-badge ${badgeClass}">${status}</div>
-            </div>
-            <div class="tema-bar-bg">
-              <div class="tema-bar" style="width:${pct}%;background:${c.bar};"></div>
-            </div>
-            <div class="tema-stats">
-              <span>${correct} acertos de ${total} respostas</span>
-              <span class="tema-acerto" style="color:${c.bar}">${pct}%</span>
-            </div>
-          </div>`;
-        }).join('')}
-      </div>
-    </div>
-
-    <!-- PERGUNTAS MAIS ERRADAS -->
-    <div class="section">
-      <div class="section-title">PERGUNTAS COM MAIS ERROS — RANKING</div>
-      <div style="background:#12102a;border:1px solid rgba(255,255,255,.07);border-radius:8px;overflow:hidden;">
-        <table class="q-table">
-          <thead>
-            <tr>
-              <th style="width:40px;">#</th>
-              <th>PERGUNTA</th>
-              <th>TEMA</th>
-              <th style="width:120px;">ACERTOS</th>
-              <th style="width:60px;">%</th>
-              <th style="width:70px;">ERROS</th>
-            </tr>
-          </thead>
-          <tbody>
-            ${qSorted.map((q,i)=>{
-              const c=CAT_COLORS[q.cat]||{bar:'#a855f7',tag:'rgba(168,85,247,.15)',tagBorder:'rgba(168,85,247,.4)',tagColor:'#a855f7'};
-              const barColor=q.pct<50?'#f87171':q.pct<70?'#fb923c':'#00d164';
-              return `
-              <tr>
-                <td class="q-rank ${q.pct<50?'danger':''}">${i+1}</td>
-                <td class="q-text">${q.txt}</td>
-                <td><span class="q-tema-tag" style="background:${c.tag};border:1px solid ${c.tagBorder};color:${c.tagColor};">${q.cat}</span></td>
-                <td>
-                  <div class="mini-bar-bg">
-                    <div class="mini-bar" style="width:${q.pct}%;background:${barColor};"></div>
-                  </div>
-                </td>
-                <td class="pct-num" style="color:${barColor};">${q.pct}%</td>
-                <td class="erros-num">${q.erros}</td>
-              </tr>`;
-            }).join('')}
-          </tbody>
-        </table>
-      </div>
-    </div>
-
-    <!-- TODOS OS ANALISTAS -->
-    <div class="section">
-      <div class="section-title">ANALISTAS PARTICIPANTES (${total})</div>
-      <div class="analistas-grid">
-        ${[...unique].sort((a,b)=>b.xp-a.xp).map((r,i)=>{
-          const mins=Math.floor((r.timeSeconds||0)/60),secs=(r.timeSeconds||0)%60;
-          const medal=i===0?'🥇':i===1?'🥈':i===2?'🥉':'';
-          return `
-          <div class="analista-row">
-            <div class="analista-av">${r.email?r.email[0].toUpperCase():'?'}</div>
-            <div class="analista-info">
-              <div class="analista-name">${medal} ${r.email.split('@')[0]}</div>
-              <div class="analista-meta">${r.pct}% acertos · ${mins}m${String(secs).padStart(2,'0')}s · combo x${r.maxCombo||0}</div>
-            </div>
-            <div class="analista-xp">${r.xp} XP</div>
-          </div>`;
-        }).join('')}
-      </div>
-    </div>
-
-    <!-- INSIGHT FINAL -->
-    <div style="background:linear-gradient(135deg,rgba(130,10,209,.1),rgba(0,209,100,.05));border:1px solid rgba(130,10,209,.3);border-radius:8px;padding:1.5rem;margin-bottom:2rem;">
-      <div style="font-family:'Orbitron',monospace;font-size:11px;color:#a855f7;letter-spacing:2px;margin-bottom:.75rem;">💡 INSIGHT PARA CALIBRAÇÃO</div>
-      <div style="font-size:.9rem;line-height:1.8;color:rgba(255,255,255,.7);">
-        ${generateInsight(catSorted,qSorted,total)}
-      </div>
-    </div>
-  `;
-}
-
-function generateInsight(catSorted,qSorted,total){
-  if(!catSorted.length) return 'Dados insuficientes para gerar insight.';
-  const worst=catSorted[0];
-  const worstQ=qSorted[0];
-  const best=catSorted[catSorted.length-1];
-  const criticos=qSorted.filter(q=>q.pct<50).length;
-
-  return `Com base em <strong style="color:#fff">${total} analistas</strong>, o tema <strong style="color:#f87171">${worst.cat}</strong> apresentou o menor aproveitamento (${worst.pct}%), indicando lacuna de conhecimento que merece atenção em calibração. 
-  A pergunta com mais erros foi: <em style="color:#fb923c">"${worstQ.txt}"</em> (${worstQ.pct}% de acertos).
-  ${criticos>0?`<br>⚠️ <strong style="color:#f87171">${criticos} pergunta${criticos>1?'s':''}</strong> tiveram menos de 50% de acertos — candidatas a reforço no próximo onboarding ou calibração.`:''}
-  <br>✅ O melhor desempenho foi em <strong style="color:#00d164">${best.cat}</strong> (${best.pct}%) — a operação demonstra domínio deste tema.`;
-}
-
-// Auto refresh 60s
-setInterval(loadData, 60000);
+document.getElementById('auth-input').addEventListener('keydown', e => {
+  if(e.key === 'Enter') checkAuth();
+});
 </script>
 </body>
 </html>
