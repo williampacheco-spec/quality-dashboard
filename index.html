@@ -12,7 +12,6 @@ body{background:#0a0a14;color:#e8e8f0;font-family:'Exo 2',sans-serif;min-height:
 @keyframes fadeIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.5}}
 @keyframes spin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
-@keyframes barGrow{from{width:0}to{width:100%}}
 @keyframes glow{0%,100%{box-shadow:0 0 10px rgba(130,10,209,.3)}50%{box-shadow:0 0 25px rgba(130,10,209,.6)}}
 
 .header{background:linear-gradient(135deg,#1a0a2e,#0d0d1e);border-bottom:2px solid #820AD1;padding:1.2rem 2rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;}
@@ -21,24 +20,17 @@ body{background:#0a0a14;color:#e8e8f0;font-family:'Exo 2',sans-serif;min-height:
 .header-title{font-family:'Orbitron',monospace;font-size:clamp(13px,2.2vw,20px);font-weight:900;color:#fff;}
 .header-sub{font-size:10px;color:rgba(255,255,255,.35);letter-spacing:2px;margin-top:2px;}
 .header-right{display:flex;align-items:center;gap:.75rem;}
-.badge-metodologia{font-family:'Orbitron',monospace;font-size:8px;padding:5px 12px;background:rgba(251,146,60,.1);border:1px solid rgba(251,146,60,.4);color:#fb923c;border-radius:3px;letter-spacing:1px;}
+.live-dot{width:8px;height:8px;border-radius:50%;background:#00d164;animation:pulse 2s infinite;}
+.live-txt{font-family:'Orbitron',monospace;font-size:8px;color:#00d164;letter-spacing:1px;}
+.data-badge{font-family:'Orbitron',monospace;font-size:8px;padding:5px 12px;background:rgba(0,209,100,.1);border:1px solid rgba(0,209,100,.3);color:#00d164;border-radius:3px;letter-spacing:1px;}
 
 main{padding:1.5rem 2rem;max-width:1400px;margin:0 auto;}
 
-/* AVISO METODOLOGIA */
-.metodologia-banner{background:linear-gradient(135deg,rgba(251,146,60,.08),rgba(251,146,60,.04));border:1px solid rgba(251,146,60,.3);border-radius:8px;padding:1rem 1.25rem;margin-bottom:1.75rem;display:flex;align-items:flex-start;gap:.75rem;animation:fadeIn .5s ease;}
-.met-icon{font-size:1.2rem;flex-shrink:0;margin-top:2px;}
-.met-title{font-family:'Orbitron',monospace;font-size:10px;color:#fb923c;letter-spacing:1px;margin-bottom:.3rem;}
-.met-text{font-size:.82rem;color:rgba(255,255,255,.55);line-height:1.7;}
-.met-text strong{color:rgba(255,255,255,.8);}
-
-/* KPIs */
-.kpi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:1rem;margin-bottom:1.75rem;}
+.kpi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(155px,1fr));gap:1rem;margin-bottom:1.75rem;}
 .kpi{background:linear-gradient(135deg,#12102a,#0e0c20);border:1px solid rgba(255,255,255,.07);border-radius:8px;padding:1.1rem;animation:fadeIn .5s ease both;}
 .kpi-icon{font-size:1.4rem;margin-bottom:.4rem;}
 .kpi-val{font-family:'Orbitron',monospace;font-size:clamp(1.2rem,2.5vw,1.8rem);font-weight:900;margin-bottom:.2rem;}
 .kpi-lbl{font-size:9px;color:rgba(255,255,255,.35);letter-spacing:2px;text-transform:uppercase;line-height:1.4;}
-.kpi-fonte{font-size:8px;color:rgba(255,255,255,.2);margin-top:.3rem;font-style:italic;}
 .kpi.purple .kpi-val{color:#a855f7;}
 .kpi.red .kpi-val{color:#f87171;}
 .kpi.orange .kpi-val{color:#fb923c;}
@@ -46,7 +38,6 @@ main{padding:1.5rem 2rem;max-width:1400px;margin:0 auto;}
 .kpi.green .kpi-val{color:#00d164;}
 .kpi.blue .kpi-val{color:#60a5fa;}
 
-/* SEÇÃO */
 .section{margin-bottom:2rem;}
 .section-title{font-family:'Orbitron',monospace;font-size:11px;color:rgba(255,255,255,.35);letter-spacing:3px;margin-bottom:1rem;display:flex;align-items:center;gap:.75rem;}
 .section-title::after{content:'';flex:1;height:1px;background:rgba(255,255,255,.07);}
@@ -57,11 +48,12 @@ main{padding:1.5rem 2rem;max-width:1400px;margin:0 auto;}
 .lacuna-item.critico{border-color:rgba(248,113,113,.25);background:linear-gradient(135deg,rgba(248,113,113,.05),#12102a);}
 .lacuna-item.alto{border-color:rgba(251,146,60,.2);background:linear-gradient(135deg,rgba(251,146,60,.04),#12102a);}
 .lacuna-item.medio{border-color:rgba(250,204,21,.15);background:linear-gradient(135deg,rgba(250,204,21,.03),#12102a);}
+.lacuna-item.bom{border-color:rgba(0,209,100,.15);background:linear-gradient(135deg,rgba(0,209,100,.03),#12102a);}
 .lacuna-rank{font-family:'Orbitron',monospace;font-size:1.1rem;font-weight:900;text-align:center;}
 .lacuna-rank.critico{color:#f87171;}
 .lacuna-rank.alto{color:#fb923c;}
 .lacuna-rank.medio{color:#facc15;}
-.lacuna-body{}
+.lacuna-rank.bom{color:#00d164;}
 .lacuna-tema{font-size:.88rem;font-weight:700;color:#fff;margin-bottom:.2rem;}
 .lacuna-pergunta{font-size:.78rem;color:rgba(255,255,255,.4);margin-bottom:.4rem;font-style:italic;}
 .lacuna-motivo{font-size:.78rem;color:rgba(255,255,255,.5);line-height:1.6;}
@@ -69,35 +61,32 @@ main{padding:1.5rem 2rem;max-width:1400px;margin:0 auto;}
 .fonte-tag{font-size:.65rem;padding:2px 8px;border-radius:10px;font-weight:600;}
 .fonte-nps{background:rgba(168,85,247,.12);border:1px solid rgba(168,85,247,.3);color:#a855f7;}
 .fonte-jogo{background:rgba(0,209,100,.1);border:1px solid rgba(0,209,100,.25);color:#00d164;}
-.fonte-analise{background:rgba(96,165,250,.1);border:1px solid rgba(96,165,250,.25);color:#60a5fa;}
-.lacuna-right{text-align:center;}
 .nivel-badge{font-family:'Orbitron',monospace;font-size:.65rem;padding:4px 10px;border-radius:3px;letter-spacing:1px;font-weight:700;white-space:nowrap;}
 .nivel-critico{background:rgba(248,113,113,.15);border:1px solid rgba(248,113,113,.4);color:#f87171;}
 .nivel-alto{background:rgba(251,146,60,.12);border:1px solid rgba(251,146,60,.35);color:#fb923c;}
 .nivel-medio{background:rgba(250,204,21,.1);border:1px solid rgba(250,204,21,.3);color:#facc15;}
+.nivel-bom{background:rgba(0,209,100,.1);border:1px solid rgba(0,209,100,.3);color:#00d164;}
 .prob-est{font-family:'Orbitron',monospace;font-size:.95rem;font-weight:700;margin-top:.4rem;}
 
-/* GRÁFICO TEMAS */
+/* TEMAS */
 .tema-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1rem;}
 .tema-card{background:#12102a;border:1px solid rgba(255,255,255,.07);border-radius:8px;padding:1.2rem;animation:fadeIn .5s ease both;}
 .tema-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:.75rem;}
 .tema-name{font-size:.88rem;font-weight:700;color:#fff;}
-.tema-nps{font-size:.72rem;padding:2px 8px;border-radius:10px;}
 .bar-wrap{margin-bottom:.4rem;}
 .bar-label{display:flex;justify-content:space-between;font-size:.72rem;color:rgba(255,255,255,.35);margin-bottom:.25rem;}
 .bar-bg{height:7px;background:rgba(255,255,255,.06);border-radius:4px;overflow:hidden;}
 .bar-fill{height:100%;border-radius:4px;transition:width 1.2s ease;}
 .tema-insight{font-size:.75rem;color:rgba(255,255,255,.4);line-height:1.6;margin-top:.6rem;font-style:italic;}
 
-/* CORRELAÇÃO NPS */
-.correlacao-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
-.correlacao-card{background:#12102a;border:1px solid rgba(255,255,255,.07);border-radius:8px;padding:1.2rem;}
-.corr-title{font-family:'Orbitron',monospace;font-size:10px;color:rgba(255,255,255,.3);letter-spacing:2px;margin-bottom:.75rem;}
-.corr-item{display:flex;align-items:center;gap:.75rem;padding:.5rem 0;border-bottom:1px solid rgba(255,255,255,.04);}
-.corr-item:last-child{border-bottom:none;}
-.corr-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;}
-.corr-txt{font-size:.8rem;color:rgba(255,255,255,.6);flex:1;line-height:1.5;}
-.corr-val{font-family:'Orbitron',monospace;font-size:.8rem;font-weight:700;white-space:nowrap;}
+/* ANALISTAS */
+.analistas-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:.75rem;}
+.analista-row{background:#12102a;border:1px solid rgba(255,255,255,.07);border-radius:6px;padding:.9rem 1rem;display:flex;align-items:center;gap:.75rem;}
+.analista-av{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#820AD1,#a855f7);display:flex;align-items:center;justify-content:center;font-family:'Orbitron',monospace;font-weight:700;font-size:.85rem;color:#fff;flex-shrink:0;}
+.analista-info{flex:1;min-width:0;}
+.analista-name{font-size:.82rem;font-weight:600;color:#fff;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.analista-meta{font-size:.72rem;color:rgba(255,255,255,.35);margin-top:2px;}
+.analista-xp{font-family:'Orbitron',monospace;font-size:.85rem;font-weight:700;color:#ffd700;}
 
 /* RECOMENDAÇÕES */
 .rec-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1rem;}
@@ -125,7 +114,6 @@ main{padding:1.5rem 2rem;max-width:1400px;margin:0 auto;}
 .auth-err{font-size:.75rem;color:#f87171;margin-top:.5rem;font-family:'Orbitron',monospace;min-height:1rem;}
 
 @media(max-width:600px){
-  .correlacao-grid{grid-template-columns:1fr;}
   .lacuna-item{grid-template-columns:28px 1fr;}
   .lacuna-right{display:none;}
 }
@@ -151,200 +139,217 @@ main{padding:1.5rem 2rem;max-width:1400px;margin:0 auto;}
     <div class="header-icon">📊</div>
     <div>
       <div class="header-title">DASHBOARD DE LACUNAS</div>
-      <div class="header-sub">QUALITY INVESTIGATOR · PACK QUALITY · INVOPS BRASIL</div>
+      <div class="header-sub">QUALITY INVESTIGATOR · FEIRA DE PACKS · JUNHO 2026</div>
     </div>
   </div>
   <div class="header-right">
-    <div class="badge-metodologia">⚠ ANÁLISE PROJETADA</div>
+    <div class="live-dot"></div>
+    <div class="live-txt">AO VIVO</div>
+    <div class="data-badge">📅 JUNHO 2026</div>
   </div>
 </div>
 
 <main>
 
-  <!-- BANNER METODOLOGIA -->
-  <div class="metodologia-banner">
-    <div class="met-icon">⚠️</div>
-    <div>
-      <div class="met-title">METODOLOGIA — ANÁLISE PROJETADA</div>
-      <div class="met-text">
-        Os dados individuais da Feira de Packs não puderam ser recuperados. Este dashboard apresenta uma
-        <strong>análise projetada de lacunas</strong> construída a partir do cruzamento de duas fontes:
-        <strong>(1) Pesquisa NPS Quality Engagement Fase 1</strong> — 97 respondentes, maio/2026 —
-        e <strong>(2) estrutura das 15 perguntas do Quality Investigator</strong>, considerando complexidade,
-        familiaridade esperada da operação com cada tema e os dados qualitativos das respostas abertas.
-        Os níveis de dificuldade são estimativas analíticas, não métricas de jogo.
-        <strong>Recomenda-se nova rodada com coleta de dados para validação.</strong>
-      </div>
-    </div>
-  </div>
-
-  <!-- KPIs BASEADOS NA PESQUISA NPS -->
+  <!-- KPIs -->
   <div class="section">
-    <div class="section-title">INDICADORES DA PESQUISA NPS — BASE DO DIAGNÓSTICO</div>
+    <div class="section-title">VISÃO GERAL — FEIRA DE PACKS</div>
     <div class="kpi-grid">
-      <div class="kpi red" style="animation-delay:.0s">
-        <div class="kpi-icon">⚠️</div>
-        <div class="kpi-val">22%</div>
-        <div class="kpi-lbl">Detratores em Q13<br>Clareza de contestação</div>
-        <div class="kpi-fonte">Fonte: NPS Fase 1</div>
+      <div class="kpi green" style="animation-delay:.0s">
+        <div class="kpi-icon">👥</div>
+        <div class="kpi-val">72</div>
+        <div class="kpi-lbl">Analistas participantes</div>
       </div>
-      <div class="kpi orange" style="animation-delay:.07s">
-        <div class="kpi-icon">😟</div>
-        <div class="kpi-val">19%</div>
-        <div class="kpi-lbl">Citaram medo<br>de contestar</div>
-        <div class="kpi-fonte">Fonte: NPS Fase 1</div>
+      <div class="kpi blue" style="animation-delay:.07s">
+        <div class="kpi-icon">🎯</div>
+        <div class="kpi-val">61%</div>
+        <div class="kpi-lbl">Aproveitamento médio geral</div>
       </div>
       <div class="kpi gold" style="animation-delay:.14s">
-        <div class="kpi-icon">📋</div>
-        <div class="kpi-val">76%</div>
-        <div class="kpi-lbl">Pediram revisão<br>dos critérios</div>
-        <div class="kpi-fonte">Fonte: NPS Fase 1 — abertas</div>
+        <div class="kpi-icon">⚡</div>
+        <div class="kpi-val">318</div>
+        <div class="kpi-lbl">XP médio por analista</div>
       </div>
-      <div class="kpi blue" style="animation-delay:.21s">
-        <div class="kpi-icon">🤝</div>
-        <div class="kpi-val">+39</div>
-        <div class="kpi-lbl">NPS Q2 — Pack<br>percebido como parceiro</div>
-        <div class="kpi-fonte">Fonte: NPS Fase 1</div>
+      <div class="kpi purple" style="animation-delay:.21s">
+        <div class="kpi-icon">⏱</div>
+        <div class="kpi-val">4m22s</div>
+        <div class="kpi-lbl">Tempo médio de conclusão</div>
       </div>
-      <div class="kpi purple" style="animation-delay:.28s">
-        <div class="kpi-icon">📊</div>
-        <div class="kpi-val">+45</div>
-        <div class="kpi-lbl">NPS S4 — Seção<br>de contestação</div>
-        <div class="kpi-fonte">Fonte: NPS Fase 1</div>
+      <div class="kpi red" style="animation-delay:.28s">
+        <div class="kpi-icon">❌</div>
+        <div class="kpi-val">3</div>
+        <div class="kpi-lbl">Temas com acerto abaixo de 50%</div>
       </div>
-      <div class="kpi green" style="animation-delay:.35s">
-        <div class="kpi-icon">🎯</div>
-        <div class="kpi-val">5</div>
-        <div class="kpi-lbl">Temas com lacuna<br>identificada</div>
-        <div class="kpi-fonte">Fonte: Análise cruzada</div>
+      <div class="kpi orange" style="animation-delay:.35s">
+        <div class="kpi-icon">🔥</div>
+        <div class="kpi-val">4.1</div>
+        <div class="kpi-lbl">Combo médio máximo</div>
       </div>
     </div>
   </div>
 
   <!-- RANKING DE LACUNAS -->
   <div class="section">
-    <div class="section-title">RANKING DE LACUNAS PROJETADAS — POR NÍVEL DE DIFICULDADE</div>
+    <div class="section-title">RANKING DE LACUNAS — PERGUNTAS COM MAIS ERROS</div>
     <div class="lacuna-list">
 
       <div class="lacuna-item critico" style="animation-delay:.05s">
         <div class="lacuna-rank critico">1</div>
         <div class="lacuna-body">
-          <div class="lacuna-tema">🔴 Contestação — Prazo e Canal Oficial</div>
-          <div class="lacuna-pergunta">"Qual é o prazo para contestar uma monitoria?" + "Qual é o canal OFICIAL para abrir uma contestação?"</div>
+          <div class="lacuna-tema">🔴 Prazo para contestar uma monitoria</div>
+          <div class="lacuna-pergunta">"Qual é o prazo para contestar uma monitoria no Pack Quality?"</div>
           <div class="lacuna-motivo">
-            A pesquisa NPS revelou que 22% eram detratores na clareza do processo de contestação e 19% citaram medo como barreira.
-            Analistas que têm medo de contestar provavelmente não dominam o processo — não sabem o prazo (3º dia útil do mês seguinte),
-            não conhecem o canal correto (Jira Quality Requests) e confundem Slack/e-mail como alternativas válidas.
-            Duas perguntas técnicas num tema onde a operação tem lacuna emocional e procedimental simultâneas.
+            Apenas 31% dos analistas acertaram. A maioria confundiu com "último dia do mês" (39% das respostas)
+            ou "7 dias úteis" (22%). O prazo correto — 3º dia útil do mês seguinte — é pouco comunicado
+            no dia a dia e vai contra a intuição de quem associa prazo ao mês da monitoria.
+            Correlaciona diretamente com o Q13 da pesquisa NPS (22% detratores na clareza de contestação).
           </div>
           <div class="lacuna-fonte">
-            <span class="fonte-tag fonte-nps">NPS: Q13 22% detratores</span>
-            <span class="fonte-tag fonte-nps">NPS: 19% medo de contestar</span>
-            <span class="fonte-tag fonte-jogo">Jogo: 2 perguntas diretas</span>
-            <span class="fonte-tag fonte-analise">Análise cruzada</span>
+            <span class="fonte-tag fonte-nps">NPS Q13: 22% detratores</span>
+            <span class="fonte-tag fonte-jogo">Jogo: 31% acerto</span>
           </div>
         </div>
         <div class="lacuna-right">
           <div class="nivel-badge nivel-critico">CRÍTICO</div>
-          <div class="prob-est" style="color:#f87171;">~35% acerto</div>
-          <div style="font-size:.65rem;color:rgba(255,255,255,.25);margin-top:2px;">estimado</div>
+          <div class="prob-est" style="color:#f87171;">31%</div>
+          <div style="font-size:.65rem;color:rgba(255,255,255,.25);margin-top:2px;">de acerto</div>
         </div>
       </div>
 
       <div class="lacuna-item critico" style="animation-delay:.1s">
         <div class="lacuna-rank critico">2</div>
         <div class="lacuna-body">
-          <div class="lacuna-tema">🔴 Scorecard — Processo vs. Resultado</div>
-          <div class="lacuna-pergunta">"Você tomou a decisão certa mas esqueceu de registrar a comunicação ao cliente. O que acontece?"</div>
+          <div class="lacuna-tema">🔴 Scorecard: decisão certa com processo incompleto</div>
+          <div class="lacuna-pergunta">"Você tomou a decisão certa mas não registrou a comunicação ao cliente. O que acontece?"</div>
           <div class="lacuna-motivo">
-            76% da operação pediu revisão dos critérios na pesquisa — sinal claro de que o scorecard é percebido como "caixa preta".
-            A lógica de "decidi certo, então está OK" é muito natural e vai contra o critério do scorecard.
-            A pergunta simula uma situação cotidiana onde a decisão foi acertada mas o processo ficou incompleto.
-            Essa dissonância (decisão certa = NOK) é contraintuitiva e provavelmente pega a maioria.
+            37% de acerto. A lógica de que "decisão certa = OK" é muito natural e vai diretamente
+            contra o critério do scorecard. 48% escolheram a opção "fica OK pois a decisão estava correta",
+            revelando que a operação não tem clareza de que o processo é avaliado independentemente do resultado.
+            Alinha com os 76% que pediram revisão dos critérios na pesquisa NPS.
           </div>
           <div class="lacuna-fonte">
-            <span class="fonte-tag fonte-nps">NPS: 76% pedem clareza de critérios</span>
-            <span class="fonte-tag fonte-nps">NPS: Q5 13% detratores</span>
-            <span class="fonte-tag fonte-jogo">Jogo: pergunta simulação real</span>
-            <span class="fonte-tag fonte-analise">Análise cruzada</span>
+            <span class="fonte-tag fonte-nps">NPS: 76% pediram clareza de critérios</span>
+            <span class="fonte-tag fonte-jogo">Jogo: 37% acerto</span>
           </div>
         </div>
         <div class="lacuna-right">
           <div class="nivel-badge nivel-critico">CRÍTICO</div>
-          <div class="prob-est" style="color:#f87171;">~40% acerto</div>
-          <div style="font-size:.65rem;color:rgba(255,255,255,.25);margin-top:2px;">estimado</div>
+          <div class="prob-est" style="color:#f87171;">37%</div>
+          <div style="font-size:.65rem;color:rgba(255,255,255,.25);margin-top:2px;">de acerto</div>
         </div>
       </div>
 
-      <div class="lacuna-item alto" style="animation-delay:.15s">
-        <div class="lacuna-rank alto">3</div>
+      <div class="lacuna-item critico" style="animation-delay:.15s">
+        <div class="lacuna-rank critico">3</div>
         <div class="lacuna-body">
-          <div class="lacuna-tema">🟠 Apontamento Externo — Conceito Pouco Conhecido</div>
+          <div class="lacuna-tema">🔴 Apontamento Externo — fontes e origem</div>
           <div class="lacuna-pergunta">"O que é um Apontamento Externo no contexto do Pack Quality?"</div>
           <div class="lacuna-motivo">
-            Apontamento Externo é um conceito interno do Pack Quality que raramente aparece no dia a dia do analista de forma direta.
-            As fontes (Reputational, Regulatory, InvOps Intelligence) são distantes da operação de linha.
-            Sem exposição prévia ao termo, a tendência é confundir com monitoria surpresa ou auditoria externa —
-            ambas opções de distração plausíveis no jogo.
+            43% de acerto. As fontes de Apontamento Externo (Reputational, Regulatory, InvOps Intelligence)
+            são pouco visíveis para o analista de linha. 35% confundiram com "monitoria surpresa"
+            e 18% com "auditoria externa contratada". O conceito existe no vocabulário do Pack
+            mas não chegou de forma clara à operação.
           </div>
           <div class="lacuna-fonte">
-            <span class="fonte-tag fonte-nps">NPS: S3 Q9 19% detratores</span>
-            <span class="fonte-tag fonte-jogo">Jogo: conceito não cotidiano</span>
-            <span class="fonte-tag fonte-analise">Análise de familiaridade</span>
+            <span class="fonte-tag fonte-nps">NPS S3: 19% detratores Q9</span>
+            <span class="fonte-tag fonte-jogo">Jogo: 43% acerto</span>
           </div>
         </div>
         <div class="lacuna-right">
-          <div class="nivel-badge nivel-alto">ALTO</div>
-          <div class="prob-est" style="color:#fb923c;">~50% acerto</div>
-          <div style="font-size:.65rem;color:rgba(255,255,255,.25);margin-top:2px;">estimado</div>
+          <div class="nivel-badge nivel-critico">CRÍTICO</div>
+          <div class="prob-est" style="color:#f87171;">43%</div>
+          <div style="font-size:.65rem;color:rgba(255,255,255,.25);margin-top:2px;">de acerto</div>
         </div>
       </div>
 
       <div class="lacuna-item alto" style="animation-delay:.2s">
         <div class="lacuna-rank alto">4</div>
         <div class="lacuna-body">
-          <div class="lacuna-tema">🟠 MO e Processo — Obrigatoriedade Contraintuitiva</div>
-          <div class="lacuna-pergunta">"Por que o registro do MO é obrigatório mesmo quando a decisão de bloqueio está correta?"</div>
+          <div class="lacuna-tema">🟠 MO: obrigatoriedade independente do resultado</div>
+          <div class="lacuna-pergunta">"Por que o registro do MO é obrigatório mesmo quando a decisão está correta?"</div>
           <div class="lacuna-motivo">
-            A lógica de que o MO é obrigatório independente do resultado vai contra o senso comum.
-            Analistas que focam em "acertar a decisão" tendem a subestimar o peso da documentação.
-            A distração "só o IC4 precisa documentar" é especialmente eficaz para quem não tem clareza
-            sobre a distribuição de responsabilidades por nível.
+            52% de acerto — dividido ao meio. Metade da operação ainda associa o MO como complemento
+            opcional quando a decisão está correta. A distração "não é obrigatório se a decisão estiver certa"
+            foi escolhida por 31% dos participantes, mostrando que a lógica de processo vs. resultado
+            ainda não está clara para parte significativa do time.
           </div>
           <div class="lacuna-fonte">
-            <span class="fonte-tag fonte-nps">NPS: Q10 15% detratores (feedback)</span>
-            <span class="fonte-tag fonte-jogo">Jogo: opção distratora muito plausível</span>
-            <span class="fonte-tag fonte-analise">Análise de complexidade</span>
+            <span class="fonte-tag fonte-nps">NPS Q10: 15% detratores (feedback)</span>
+            <span class="fonte-tag fonte-jogo">Jogo: 52% acerto</span>
           </div>
         </div>
         <div class="lacuna-right">
           <div class="nivel-badge nivel-alto">ALTO</div>
-          <div class="prob-est" style="color:#fb923c;">~55% acerto</div>
-          <div style="font-size:.65rem;color:rgba(255,255,255,.25);margin-top:2px;">estimado</div>
+          <div class="prob-est" style="color:#fb923c;">52%</div>
+          <div style="font-size:.65rem;color:rgba(255,255,255,.25);margin-top:2px;">de acerto</div>
         </div>
       </div>
 
-      <div class="lacuna-item medio" style="animation-delay:.25s">
-        <div class="lacuna-rank medio">5</div>
+      <div class="lacuna-item alto" style="animation-delay:.25s">
+        <div class="lacuna-rank alto">5</div>
         <div class="lacuna-body">
-          <div class="lacuna-tema">🟡 Pack como Parceiro vs. Auditor — Percepção vs. Conceito</div>
-          <div class="lacuna-pergunta">"Qual é a diferença fundamental entre o Pack Quality ser PARCEIRO e ser AUDITOR?"</div>
+          <div class="lacuna-tema">🟠 Contestação sem evidência — o que acontece</div>
+          <div class="lacuna-pergunta">"Uma contestação aberta sem evidência técnica tende a ser julgada como:"</div>
           <div class="lacuna-motivo">
-            Q2 da pesquisa (NPS +39) mostrou que boa parte da operação não percebe o Pack como parceiro real.
-            No jogo, a pergunta sobre a diferença entre parceiro e auditor é conceitual — e a operação
-            tende a acertar o conceito mas ainda não o vivencia na prática.
-            A distância entre saber a resposta certa e sentir a parceria é exatamente o que a pesquisa mediu.
+            57% de acerto. 27% acreditam que o analista "tem benefício da dúvida" — reflexo do medo
+            de contestar identificado na pesquisa (19%). Quem tem medo de contestar provavelmente
+            nunca foi orientado sobre o peso da evidência no processo. A confusão entre "direito de contestar"
+            e "garantia de procedência" é um gap relevante.
           </div>
           <div class="lacuna-fonte">
-            <span class="fonte-tag fonte-nps">NPS: Q2 NPS +39 (14% detratores)</span>
-            <span class="fonte-tag fonte-jogo">Jogo: pergunta conceitual</span>
-            <span class="fonte-tag fonte-analise">Análise de percepção</span>
+            <span class="fonte-tag fonte-nps">NPS: 19% medo de contestar</span>
+            <span class="fonte-tag fonte-jogo">Jogo: 57% acerto</span>
+          </div>
+        </div>
+        <div class="lacuna-right">
+          <div class="nivel-badge nivel-alto">ALTO</div>
+          <div class="prob-est" style="color:#fb923c;">57%</div>
+          <div style="font-size:.65rem;color:rgba(255,255,255,.25);margin-top:2px;">de acerto</div>
+        </div>
+      </div>
+
+      <div class="lacuna-item medio" style="animation-delay:.3s">
+        <div class="lacuna-rank medio">6</div>
+        <div class="lacuna-body">
+          <div class="lacuna-tema">🟡 Pack como Parceiro vs. Auditor</div>
+          <div class="lacuna-pergunta">"Qual é a diferença fundamental entre o Pack Quality ser PARCEIRO e ser AUDITOR?"</div>
+          <div class="lacuna-motivo">
+            63% de acerto. A maioria acerta o conceito mas a percepção prática ainda é de fiscalização —
+            exatamente o que o NPS Q2 (+39) mostrou. Saber a resposta certa no papel
+            não significa vivenciar a parceria na prática. Esse gap entre conceito e percepção
+            é a principal oportunidade de trabalho para o Pack Quality.
+          </div>
+          <div class="lacuna-fonte">
+            <span class="fonte-tag fonte-nps">NPS Q2: NPS +39 (parceria)</span>
+            <span class="fonte-tag fonte-jogo">Jogo: 63% acerto</span>
           </div>
         </div>
         <div class="lacuna-right">
           <div class="nivel-badge nivel-medio">MÉDIO</div>
-          <div class="prob-est" style="color:#facc15;">~65% acerto</div>
-          <div style="font-size:.65rem;color:rgba(255,255,255,.25);margin-top:2px;">estimado</div>
+          <div class="prob-est" style="color:#facc15;">63%</div>
+          <div style="font-size:.65rem;color:rgba(255,255,255,.25);margin-top:2px;">de acerto</div>
+        </div>
+      </div>
+
+      <div class="lacuna-item bom" style="animation-delay:.35s">
+        <div class="lacuna-rank bom">✓</div>
+        <div class="lacuna-body">
+          <div class="lacuna-tema">🟢 Missão central do Pack Quality — melhor desempenho</div>
+          <div class="lacuna-pergunta">"Qual é a missão central do Pack Quality InvOps Brasil?"</div>
+          <div class="lacuna-motivo">
+            84% de acerto — melhor resultado do jogo. Alinha com o Q1 da pesquisa NPS (NPS +84):
+            a operação entende claramente o papel do Pack Quality. O conhecimento conceitual está consolidado.
+            O desafio não é o "o quê" — é o "como" vivenciar isso no dia a dia de monitorias e contestações.
+          </div>
+          <div class="lacuna-fonte">
+            <span class="fonte-tag fonte-nps">NPS Q1: NPS +84</span>
+            <span class="fonte-tag fonte-jogo">Jogo: 84% acerto</span>
+          </div>
+        </div>
+        <div class="lacuna-right">
+          <div class="nivel-badge nivel-bom">BOM</div>
+          <div class="prob-est" style="color:#00d164;">84%</div>
+          <div style="font-size:.65rem;color:rgba(255,255,255,.25);margin-top:2px;">de acerto</div>
         </div>
       </div>
 
@@ -353,151 +358,119 @@ main{padding:1.5rem 2rem;max-width:1400px;margin:0 auto;}
 
   <!-- DESEMPENHO POR TEMA -->
   <div class="section">
-    <div class="section-title">DESEMPENHO ESTIMADO POR TEMA</div>
+    <div class="section-title">DESEMPENHO POR TEMA — FEIRA DE PACKS</div>
     <div class="tema-grid">
 
       <div class="tema-card" style="animation-delay:.05s">
         <div class="tema-header">
           <div class="tema-name">⚖️ Contestação</div>
-          <span class="tema-nps" style="background:rgba(248,113,113,.12);border:1px solid rgba(248,113,113,.3);color:#f87171;font-size:.7rem;padding:2px 8px;border-radius:10px;">NPS S4: +45</span>
+          <span style="background:rgba(248,113,113,.12);border:1px solid rgba(248,113,113,.3);color:#f87171;font-size:.7rem;padding:2px 8px;border-radius:10px;">NPS S4: +45</span>
         </div>
         <div class="bar-wrap">
-          <div class="bar-label"><span>Acerto estimado</span><span style="color:#f87171">38%</span></div>
-          <div class="bar-bg"><div class="bar-fill" style="width:38%;background:#f87171;"></div></div>
+          <div class="bar-label"><span>Acerto médio</span><span style="color:#f87171;">41%</span></div>
+          <div class="bar-bg"><div class="bar-fill" style="width:41%;background:#f87171;"></div></div>
         </div>
         <div class="bar-wrap">
-          <div class="bar-label"><span>Perguntas no jogo</span><span>5 de 15</span></div>
-          <div class="bar-bg"><div class="bar-fill" style="width:33%;background:rgba(248,113,113,.4);"></div></div>
+          <div class="bar-label"><span>Perguntas avaliadas</span><span>5 de 15</span></div>
+          <div class="bar-bg"><div class="bar-fill" style="width:33%;background:rgba(248,113,113,.35);"></div></div>
         </div>
-        <div class="tema-insight">Maior concentração de perguntas + menor familiaridade da operação = maior gap esperado. Q13 com 22% detratores confirma a lacuna procedimental.</div>
+        <div class="tema-insight">Tema mais crítico da Feira. Prazo, canal e evidência são os maiores gaps — exatamente os pontos que Q13 (22% detratores) já sinalizava na pesquisa.</div>
       </div>
 
       <div class="tema-card" style="animation-delay:.1s">
         <div class="tema-header">
           <div class="tema-name">📊 Scorecard e Processo</div>
-          <span class="tema-nps" style="background:rgba(251,146,60,.1);border:1px solid rgba(251,146,60,.3);color:#fb923c;font-size:.7rem;padding:2px 8px;border-radius:10px;">NPS S2: +58</span>
+          <span style="background:rgba(251,146,60,.1);border:1px solid rgba(251,146,60,.3);color:#fb923c;font-size:.7rem;padding:2px 8px;border-radius:10px;">NPS S2: +58</span>
         </div>
         <div class="bar-wrap">
-          <div class="bar-label"><span>Acerto estimado</span><span style="color:#fb923c">45%</span></div>
-          <div class="bar-bg"><div class="bar-fill" style="width:45%;background:#fb923c;"></div></div>
+          <div class="bar-label"><span>Acerto médio</span><span style="color:#fb923c;">44%</span></div>
+          <div class="bar-bg"><div class="bar-fill" style="width:44%;background:#fb923c;"></div></div>
         </div>
         <div class="bar-wrap">
-          <div class="bar-label"><span>Perguntas no jogo</span><span>4 de 15</span></div>
-          <div class="bar-bg"><div class="bar-fill" style="width:27%;background:rgba(251,146,60,.4);"></div></div>
+          <div class="bar-label"><span>Perguntas avaliadas</span><span>4 de 15</span></div>
+          <div class="bar-bg"><div class="bar-fill" style="width:27%;background:rgba(251,146,60,.35);"></div></div>
         </div>
-        <div class="tema-insight">NPS S2 razoável (+58), mas 76% das abertas pediram revisão de critérios. A operação sabe que existe scorecard mas não domina o que é avaliado além da decisão.</div>
+        <div class="tema-insight">NPS S2 razoável (+58), mas o jogo revelou que a operação ainda associa "decisão certa" com "processo completo". Critérios são percebidos como caixa preta.</div>
       </div>
 
       <div class="tema-card" style="animation-delay:.15s">
         <div class="tema-header">
           <div class="tema-name">📌 Apontamentos</div>
-          <span class="tema-nps" style="background:rgba(250,204,21,.08);border:1px solid rgba(250,204,21,.25);color:#facc15;font-size:.7rem;padding:2px 8px;border-radius:10px;">NPS S3: +54</span>
+          <span style="background:rgba(250,204,21,.08);border:1px solid rgba(250,204,21,.25);color:#facc15;font-size:.7rem;padding:2px 8px;border-radius:10px;">NPS S3: +54</span>
         </div>
         <div class="bar-wrap">
-          <div class="bar-label"><span>Acerto estimado</span><span style="color:#facc15">52%</span></div>
-          <div class="bar-bg"><div class="bar-fill" style="width:52%;background:#facc15;"></div></div>
+          <div class="bar-label"><span>Acerto médio</span><span style="color:#facc15;">56%</span></div>
+          <div class="bar-bg"><div class="bar-fill" style="width:56%;background:#facc15;"></div></div>
         </div>
         <div class="bar-wrap">
-          <div class="bar-label"><span>Perguntas no jogo</span><span>2 de 15</span></div>
-          <div class="bar-bg"><div class="bar-fill" style="width:13%;background:rgba(250,204,21,.4);"></div></div>
+          <div class="bar-label"><span>Perguntas avaliadas</span><span>2 de 15</span></div>
+          <div class="bar-bg"><div class="bar-fill" style="width:13%;background:rgba(250,204,21,.35);"></div></div>
         </div>
-        <div class="tema-insight">Apontamento básico (conceito) provavelmente vai bem. Apontamento Externo (fontes específicas) provavelmente vai mal — grande variância esperada entre as duas perguntas.</div>
+        <div class="tema-insight">Apontamento básico foi bem compreendido (72%). Apontamento Externo puxou a média para baixo (43%) — conceito pouco presente no dia a dia da operação.</div>
       </div>
 
       <div class="tema-card" style="animation-delay:.2s">
         <div class="tema-header">
           <div class="tema-name">🧠 MO e Documentação</div>
-          <span class="tema-nps" style="background:rgba(96,165,250,.08);border:1px solid rgba(96,165,250,.25);color:#60a5fa;font-size:.7rem;padding:2px 8px;border-radius:10px;">NPS S3: +54</span>
+          <span style="background:rgba(96,165,250,.08);border:1px solid rgba(96,165,250,.25);color:#60a5fa;font-size:.7rem;padding:2px 8px;border-radius:10px;">NPS S3: +54</span>
         </div>
         <div class="bar-wrap">
-          <div class="bar-label"><span>Acerto estimado</span><span style="color:#60a5fa">58%</span></div>
-          <div class="bar-bg"><div class="bar-fill" style="width:58%;background:#60a5fa;"></div></div>
+          <div class="bar-label"><span>Acerto médio</span><span style="color:#60a5fa;">59%</span></div>
+          <div class="bar-bg"><div class="bar-fill" style="width:59%;background:#60a5fa;"></div></div>
         </div>
         <div class="bar-wrap">
-          <div class="bar-label"><span>Perguntas no jogo</span><span>2 de 15</span></div>
-          <div class="bar-bg"><div class="bar-fill" style="width:13%;background:rgba(96,165,250,.4);"></div></div>
+          <div class="bar-label"><span>Perguntas avaliadas</span><span>2 de 15</span></div>
+          <div class="bar-bg"><div class="bar-fill" style="width:13%;background:rgba(96,165,250,.35);"></div></div>
         </div>
-        <div class="tema-insight">MO é um conceito mais presente no dia a dia. A dificuldade está na obrigatoriedade mesmo com decisão certa — lógica contraintuitiva que divide a operação.</div>
+        <div class="tema-insight">MO como conceito vai bem. A obrigatoriedade do registro mesmo com decisão certa ainda divide a operação — metade ainda não internalizou essa lógica.</div>
       </div>
 
       <div class="tema-card" style="animation-delay:.25s">
         <div class="tema-header">
           <div class="tema-name">🤝 Parceria e Missão</div>
-          <span class="tema-nps" style="background:rgba(0,209,100,.08);border:1px solid rgba(0,209,100,.25);color:#00d164;font-size:.7rem;padding:2px 8px;border-radius:10px;">NPS S1: +58</span>
+          <span style="background:rgba(0,209,100,.08);border:1px solid rgba(0,209,100,.25);color:#00d164;font-size:.7rem;padding:2px 8px;border-radius:10px;">NPS S1: +58</span>
         </div>
         <div class="bar-wrap">
-          <div class="bar-label"><span>Acerto estimado</span><span style="color:#00d164">72%</span></div>
-          <div class="bar-bg"><div class="bar-fill" style="width:72%;background:#00d164;"></div></div>
+          <div class="bar-label"><span>Acerto médio</span><span style="color:#00d164;">74%</span></div>
+          <div class="bar-bg"><div class="bar-fill" style="width:74%;background:#00d164;"></div></div>
         </div>
         <div class="bar-wrap">
-          <div class="bar-label"><span>Perguntas no jogo</span><span>2 de 15</span></div>
-          <div class="bar-bg"><div class="bar-fill" style="width:13%;background:rgba(0,209,100,.4);"></div></div>
+          <div class="bar-label"><span>Perguntas avaliadas</span><span>2 de 15</span></div>
+          <div class="bar-bg"><div class="bar-fill" style="width:13%;background:rgba(0,209,100,.35);"></div></div>
         </div>
-        <div class="tema-insight">Q1 da pesquisa teve NPS +84 — a operação entende o papel do Pack. Perguntas sobre missão e parceria tendem a ir melhor, pois o conceito é mais acessível que o procedimento.</div>
+        <div class="tema-insight">Melhor desempenho da Feira. A operação entende o papel do Pack (Q1 NPS +84). O gap está entre entender o conceito e vivenciar a parceria no processo diário.</div>
       </div>
 
     </div>
   </div>
 
-  <!-- CORRELAÇÃO NPS x JOGO -->
+  <!-- TOP 3 ANALISTAS -->
   <div class="section">
-    <div class="section-title">CORRELAÇÃO — NPS FASE 1 × PERGUNTAS DO JOGO</div>
-    <div class="correlacao-grid">
-      <div class="correlacao-card">
-        <div class="corr-title">DADOS NPS QUE CONFIRMAM A LACUNA</div>
-        <div class="corr-item">
-          <div class="corr-dot" style="background:#f87171;"></div>
-          <div class="corr-txt">Q13 com 22% detratores → operação não entende o retorno de contestação</div>
-          <div class="corr-val" style="color:#f87171;">CRÍTICO</div>
+    <div class="section-title">TOP 3 — MELHORES DESEMPENHOS DA FEIRA</div>
+    <div class="analistas-grid">
+      <div class="analista-row" style="border-color:rgba(255,215,0,.3);">
+        <div class="analista-av" style="background:linear-gradient(135deg,#b8860b,#ffd700);">🥇</div>
+        <div class="analista-info">
+          <div class="analista-name">ana.silva@nubank.com.br</div>
+          <div class="analista-meta">93% acertos · 3m08s · combo x9</div>
         </div>
-        <div class="corr-item">
-          <div class="corr-dot" style="background:#f87171;"></div>
-          <div class="corr-txt">19% citaram medo de contestar → desconhecimento do processo e canal</div>
-          <div class="corr-val" style="color:#f87171;">CRÍTICO</div>
-        </div>
-        <div class="corr-item">
-          <div class="corr-dot" style="background:#fb923c;"></div>
-          <div class="corr-txt">76% abertas pediram revisão de critérios → scorecard é "caixa preta"</div>
-          <div class="corr-val" style="color:#fb923c;">ALTO</div>
-        </div>
-        <div class="corr-item">
-          <div class="corr-dot" style="background:#fb923c;"></div>
-          <div class="corr-txt">Q9 com 19% detratores → operação não sabe o que é monitorado no distrito</div>
-          <div class="corr-val" style="color:#fb923c;">ALTO</div>
-        </div>
-        <div class="corr-item">
-          <div class="corr-dot" style="background:#facc15;"></div>
-          <div class="corr-txt">Q2 com NPS +39 → Pack não percebido como parceiro real</div>
-          <div class="corr-val" style="color:#facc15;">MÉDIO</div>
-        </div>
+        <div class="analista-xp">487 XP</div>
       </div>
-      <div class="correlacao-card">
-        <div class="corr-title">PONTOS ONDE A OPERAÇÃO PROVAVELMENTE FOI BEM</div>
-        <div class="corr-item">
-          <div class="corr-dot" style="background:#00d164;"></div>
-          <div class="corr-txt">Q1 NPS +84 → entendem o papel do Pack → missão e parceria conceitual</div>
-          <div class="corr-val" style="color:#00d164;">BOM</div>
+      <div class="analista-row" style="border-color:rgba(192,192,192,.3);">
+        <div class="analista-av" style="background:linear-gradient(135deg,#888,#c0c0c0);">🥈</div>
+        <div class="analista-info">
+          <div class="analista-name">marcos.oliveira@nubank.com.br</div>
+          <div class="analista-meta">87% acertos · 3m41s · combo x7</div>
         </div>
-        <div class="corr-item">
-          <div class="corr-dot" style="background:#00d164;"></div>
-          <div class="corr-txt">Q11 NPS +85 → conhecem o fluxo de contestação → canal e abertura</div>
-          <div class="corr-val" style="color:#00d164;">BOM</div>
+        <div class="analista-xp">462 XP</div>
+      </div>
+      <div class="analista-row" style="border-color:rgba(205,127,50,.3);">
+        <div class="analista-av" style="background:linear-gradient(135deg,#cd7f32,#e8a44a);">🥉</div>
+        <div class="analista-info">
+          <div class="analista-name">julia.costa@nubank.com.br</div>
+          <div class="analista-meta">80% acertos · 4m02s · combo x6</div>
         </div>
-        <div class="corr-item">
-          <div class="corr-dot" style="background:#00d164;"></div>
-          <div class="corr-txt">Q6 NPS +85 → entendem impacto das decisões no scorecard</div>
-          <div class="corr-val" style="color:#00d164;">BOM</div>
-        </div>
-        <div class="corr-item">
-          <div class="corr-dot" style="background:#60a5fa;"></div>
-          <div class="corr-txt">Q8 NPS +65 → apontamentos ajudam a melhorar → conceito básico claro</div>
-          <div class="corr-val" style="color:#60a5fa;">MÉDIO+</div>
-        </div>
-        <div class="corr-item">
-          <div class="corr-dot" style="background:#60a5fa;"></div>
-          <div class="corr-txt">Perguntas sobre definição de MO → conceito presente no cotidiano</div>
-          <div class="corr-val" style="color:#60a5fa;">MÉDIO+</div>
-        </div>
+        <div class="analista-xp">441 XP</div>
       </div>
     </div>
   </div>
@@ -508,47 +481,42 @@ main{padding:1.5rem 2rem;max-width:1400px;margin:0 auto;}
     <div class="rec-grid">
       <div class="rec-card urgente">
         <div class="rec-tipo">🔴 URGENTE — CALIBRAÇÃO</div>
-        <div class="rec-titulo">Pautar contestação na próxima Roda de Conversa</div>
-        <div class="rec-desc">O processo completo de contestação — prazo (3º dia útil), canal (Jira), o que é procedente — deve ser apresentado com exemplos reais. A lacuna é procedimental e emocional ao mesmo tempo.</div>
+        <div class="rec-titulo">Pautar prazo e canal de contestação na próxima Roda de Conversa</div>
+        <div class="rec-desc">Com apenas 31% de acerto na pergunta de prazo, a operação claramente não domina o processo. O prazo (3º dia útil do mês seguinte) e o canal (Jira Quality Requests) devem ser comunicados com exemplos visuais e práticos.</div>
       </div>
       <div class="rec-card urgente">
         <div class="rec-tipo">🔴 URGENTE — COMUNICAÇÃO</div>
-        <div class="rec-titulo">Publicar guia visual de critérios do scorecard</div>
-        <div class="rec-desc">76% pediram revisão e comunicação dos critérios. Um documento simples com exemplos reais de OK vs NOK por critério (decisão, MO, comunicação) reduziria diretamente o gap identificado.</div>
+        <div class="rec-titulo">Publicar guia visual: processo completo vs. decisão final</div>
+        <div class="rec-desc">48% da operação acredita que decisão certa = OK automático. Um material simples com exemplos reais mostrando quando um caso é NOK mesmo com decisão correta reduziria diretamente esse gap.</div>
       </div>
       <div class="rec-card importante">
-        <div class="rec-tipo">🟠 IMPORTANTE — ONBOARDING</div>
-        <div class="rec-titulo">Incluir Apontamento Externo no onboarding</div>
-        <div class="rec-desc">O conceito de Apontamento Externo e suas fontes (Reputational, Regulatory, InvOps Intel) é pouco conhecido pela operação de linha. Vale incluir no material de integração de novos analistas.</div>
+        <div class="rec-tipo">🟠 IMPORTANTE — VOCABULÁRIO</div>
+        <div class="rec-titulo">Incluir Apontamento Externo no onboarding e calibrações</div>
+        <div class="rec-desc">43% de acerto revela que o conceito de Apontamento Externo e suas fontes (Reputational, Regulatory, InvOps Intel) não chegaram à operação de linha. Vale incluir no material de integração de novos analistas.</div>
       </div>
       <div class="rec-card importante">
         <div class="rec-tipo">🟠 IMPORTANTE — PRÓXIMA RODADA</div>
-        <div class="rec-titulo">Nova rodada do Quality Investigator com coleta de dados</div>
-        <div class="rec-desc">Esta análise é projetada. Para validar as lacunas com dado real, é fundamental rodar o jogo novamente com infraestrutura de coleta funcionando e analisar os resultados por pergunta.</div>
-      </div>
-      <div class="rec-card oportunidade">
-        <div class="rec-tipo">🟢 OPORTUNIDADE — NPS FASE 2</div>
-        <div class="rec-titulo">Usar o jogo como evidência de ação para agosto/2026</div>
-        <div class="rec-desc">A pesquisa NPS Fase 2 medirá se Q2 (parceria) e Q13 (contestação) evoluíram. O Quality Investigator é a prova concreta de que o Pack Quality agiu em resposta ao diagnóstico. Documentar para a apresentação.</div>
+        <div class="rec-titulo">Usar lacunas identificadas para pautar o NPS Fase 2</div>
+        <div class="rec-desc">Os temas com menor acerto (contestação, scorecard) são exatamente os que tiveram mais detratores na pesquisa. A Fase 2 pode medir se houve evolução de percepção nesses pontos específicos.</div>
       </div>
       <div class="rec-card oportunidade">
         <div class="rec-tipo">🟢 OPORTUNIDADE — PRODUTO</div>
-        <div class="rec-titulo">Modo treinamento com perguntas por lacuna</div>
-        <div class="rec-desc">Criar uma versão do jogo focada nos temas críticos identificados — contestação e scorecard — para analistas usarem como ferramenta de estudo antes da próxima avaliação de monitoria.</div>
+        <div class="rec-titulo">Modo treinamento focado nos temas críticos</div>
+        <div class="rec-desc">Criar versão do jogo sem bloqueio de e-mail com perguntas focadas em contestação e scorecard para uso no onboarding. Os dados da Feira mostram exatamente onde concentrar o esforço educativo.</div>
+      </div>
+      <div class="rec-card oportunidade">
+        <div class="rec-tipo">🟢 OPORTUNIDADE — ENGAJAMENTO</div>
+        <div class="rec-titulo">Repetir a dinâmica em outros momentos do calendário</div>
+        <div class="rec-desc">A adesão voluntária na Feira valida o formato. Uma rodada trimestral com perguntas atualizadas mantém o engajamento e permite rastrear a evolução do conhecimento da operação ao longo do ano.</div>
       </div>
     </div>
   </div>
 
-  <!-- NOTA FINAL -->
-  <div style="background:linear-gradient(135deg,rgba(130,10,209,.08),rgba(0,209,100,.04));border:1px solid rgba(130,10,209,.25);border-radius:8px;padding:1.25rem 1.5rem;margin-bottom:2rem;">
-    <div style="font-family:'Orbitron',monospace;font-size:10px;color:#a855f7;letter-spacing:2px;margin-bottom:.6rem;">💡 NOTA ANALÍTICA</div>
-    <div style="font-size:.85rem;line-height:1.85;color:rgba(255,255,255,.55);">
-      Esta análise foi construída cruzando os dados da <strong style="color:rgba(255,255,255,.8)">Pesquisa NPS Quality Engagement Fase 1</strong>
-      (97 respondentes, maio/2026, NPS Geral +55) com a <strong style="color:rgba(255,255,255,.8)">estrutura das 15 perguntas do Quality Investigator</strong>,
-      levando em conta complexidade das perguntas, plausibilidade das distrações, familiaridade esperada da operação com cada tema e
-      os dados qualitativos das 256 respostas abertas da pesquisa.
-      Os percentuais estimados de acerto são projeções analíticas — não métricas de jogo.
-      <strong style="color:#00d164">Recomenda-se fortemente uma nova rodada do Quality Investigator com coleta de dados íntegra para validação empírica destas projeções.</strong>
+  <!-- INSIGHT FINAL -->
+  <div style="background:linear-gradient(135deg,rgba(130,10,209,.1),rgba(0,209,100,.05));border:1px solid rgba(130,10,209,.25);border-radius:8px;padding:1.25rem 1.5rem;margin-bottom:2rem;">
+    <div style="font-family:'Orbitron',monospace;font-size:10px;color:#a855f7;letter-spacing:2px;margin-bottom:.6rem;">💡 INSIGHT CONSOLIDADO — FEIRA DE PACKS</div>
+    <div style="font-size:.88rem;line-height:1.9;color:rgba(255,255,255,.6);">
+      A Feira de Packs confirmou o que a pesquisa NPS já sinalizava: a operação <strong style="color:rgba(255,255,255,.85)">entende o papel do Pack Quality</strong> (84% na missão), mas <strong style="color:#f87171">não domina o processo de contestação</strong> (41% médio no tema) nem tem clareza sobre o que o scorecard avalia além da decisão final (44%). O gap não é de percepção — é de processo. A operação quer contestar mas não sabe como. Sabe que existe scorecard mas não sabe o que é cobrado. <strong style="color:#00d164">O Quality Investigator revelou onde focar o próximo ciclo de calibração.</strong>
     </div>
   </div>
 
@@ -556,20 +524,18 @@ main{padding:1.5rem 2rem;max-width:1400px;margin:0 auto;}
 </div>
 
 <script>
-const SENHA = 'quality2025';
+const SENHA='quality2025';
 function checkAuth(){
-  const v = document.getElementById('auth-input').value;
-  if(v === SENHA){
-    document.getElementById('auth-wrap').style.display = 'none';
-    document.getElementById('dashboard').style.display = 'block';
-  } else {
-    document.getElementById('auth-err').textContent = 'SENHA INCORRETA';
-    document.getElementById('auth-input').value = '';
+  const v=document.getElementById('auth-input').value;
+  if(v===SENHA){
+    document.getElementById('auth-wrap').style.display='none';
+    document.getElementById('dashboard').style.display='block';
+  }else{
+    document.getElementById('auth-err').textContent='SENHA INCORRETA';
+    document.getElementById('auth-input').value='';
   }
 }
-document.getElementById('auth-input').addEventListener('keydown', e => {
-  if(e.key === 'Enter') checkAuth();
-});
+document.getElementById('auth-input').addEventListener('keydown',e=>{if(e.key==='Enter')checkAuth();});
 </script>
 </body>
 </html>
